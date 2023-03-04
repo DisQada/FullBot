@@ -1,0 +1,39 @@
+{
+	"name": "easybot-example",
+	"version": "0.1.0",
+	"description": "قالب جاهز لكود بوت دسكورد بإستخدام أداة easybot",
+	"main": "bot/launch.js",
+	"type": "commonjs",
+	"scripts": {
+		"start": "nodemon ."
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"node_modules/",
+			".eslintrc.json",
+			".gitignore",
+			"LICENSE",
+			"README.md"
+		]
+	},
+	"keywords": [
+		"Easy bot",
+		"Discord bot",
+		"Example",
+		"Template"
+	],
+	"author": {
+		"name": "The Alpha",
+		"email": "contact@nabilalsaiad.com",
+		"url": "https://links.nabilalsaiad.com"
+	},
+	"license": "Apache 2.0",
+	"dependencies": {
+		"discord.js": "^14.7.1",
+		"dotenv": "^16.0.3"
+	},
+	"devDependencies": {
+		"eslint": "^8.35.0",
+		"nodemon": "^2.0.20"
+	}
+}
