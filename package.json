@@ -29,11 +29,11 @@
 	},
 	"license": "Apache 2.0",
 	"dependencies": {
-		"discord.js": "^14.7.1",
+		"halfbot": "^0.1.0",
 		"dotenv": "^16.0.3"
 	},
 	"devDependencies": {
-		"eslint": "^8.35.0",
-		"nodemon": "^2.0.20"
+		"nodemon": "^2.0.20",
+		"eslint": "^8.35.0"
 	}
 }

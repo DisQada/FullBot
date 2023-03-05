@@ -1,4 +1,4 @@
-const { BotCommand, BotCommandDeployment } = require("easybot");
+const { BotCommand, BotCommandDeployment } = require("halfbot");
 
 /**
  * @type { import("easybot").BotCommandData }

@@ -1,4 +1,4 @@
-const { DiscordBot } = require("easybot");
+const { DiscordBot } = require("halfbot");
 require("dotenv").config();
 
 const botStyle = require("./config/style");
