@@ -1,7 +1,7 @@
 const { BotCommand, BotCommandDeployment } = require("halfbot");
 
 /**
- * @type { import("easybot").BotCommandData }
+ * @type { import("halfbot").BotCommandData }
  */
 const data = {
 	name: "ping",
@@ -15,7 +15,7 @@ const data = {
 };
 
 /**
- * @param { import("easybot").BotCommandInteraction } interaction
+ * @param { import("halfbot").BotCommandInteraction } interaction
  */
 async function execute(interaction) {
 	return `Ping: ${interaction.client.ws.ping}ms.`;
