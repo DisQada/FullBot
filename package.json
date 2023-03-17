@@ -1,23 +1,17 @@
 {
-	"name": "halfbot-example",
-	"version": "0.1.0",
+	"name": "@disqada/halfbot-example",
+	"version": "0.2.0",
 	"description": "قالب جاهز لكود بوت دسكورد بإستخدام أداة halfbot",
 	"main": "bot/launch.js",
 	"type": "commonjs",
 	"scripts": {
-		"start": "nodemon ."
-	},
-	"nodemonConfig": {
-		"ignore": [
-			"node_modules/",
-			".eslintrc.json",
-			".gitignore",
-			"LICENSE",
-			"README.md"
-		]
+		"setup": "npm i",
+		"start": "node .",
+		"watch": "nodemon ."
 	},
 	"keywords": [
 		"Easy bot",
+		"Half bot",
 		"Discord bot",
 		"Example",
 		"Template"
@@ -27,13 +21,12 @@
 		"email": "contact@nabilalsaiad.com",
 		"url": "https://links.nabilalsaiad.com"
 	},
-	"license": "Apache 2.0",
+	"license": "MIT",
 	"dependencies": {
-		"halfbot": "^0.1.0",
-		"dotenv": "^16.0.3"
+		"@disqada/halfbot": "^0.2.1"
 	},
 	"devDependencies": {
-		"nodemon": "^2.0.20",
-		"eslint": "^8.35.0"
+		"eslint": "^8.35.0",
+		"nodemon": "^2.0.20"
 	}
 }

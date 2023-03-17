@@ -1,0 +1,4 @@
+{
+	"ignore": ["**/node_modules/**", ".eslintrc.json"],
+	"ext": "js,json"
+}
