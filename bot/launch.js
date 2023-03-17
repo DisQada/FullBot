@@ -1,12 +1,8 @@
-const { DiscordBot } = require("halfbot");
-require("dotenv").config();
+const { DiscordBot } = require("@disqada/halfbot");
 
-const botStyle = require("./config/style");
+/** @type { import("@disqada/halfbot").DiscordBotData } */
+const botData = {
+	rootDirectory: "bot"
+};
 
-const bot = new DiscordBot({
-	token: process.env.botToken,
-	clientId: process.env.clientId,
-	style: botStyle
-});
-
-module.exports = bot;
+new DiscordBot(botData);

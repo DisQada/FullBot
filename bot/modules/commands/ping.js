@@ -1,11 +1,9 @@
-const { BotCommand, BotCommandDeployment } = require("halfbot");
+const { BotCommand, BotCommandDeployment } = require("@disqada/halfbot");
 
-/**
- * @type { import("halfbot").BotCommandData }
- */
+/** @type { import("@disqada/halfbot").BotCommandData } */
 const data = {
 	name: "ping",
-	description: "Replies with the bot websocket heartbeat",
+	description: "Replies with the bot's ping",
 	deployment: BotCommandDeployment.Global,
 	category: "information",
 	types: {
@@ -14,9 +12,7 @@ const data = {
 	}
 };
 
-/**
- * @param { import("halfbot").BotCommandInteraction } interaction
- */
+/** @param { import("@disqada/halfbot").BotCommandInteraction } interaction */
 async function execute(interaction) {
 	return `Ping: ${interaction.client.ws.ping}ms.`;
 }
