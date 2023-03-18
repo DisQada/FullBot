@@ -45,16 +45,20 @@ async function execute(interaction) {
 	}
 
 	const { getFilePath } = require("paths-manager");
-	const welcomeEventFilePath = getFilePath("memberJoin.js");
+	const welcomeEventFilePath = getFilePath("guildMemberAdd.js");
 
 	/** @type { import("@disqada/halfbot").BotEvent } */
 	const welcomeEvent = require(welcomeEventFilePath);
 
 	welcomeEvent.execute(interaction.bot, target);
-	// return {
-	// 	content: `Welcomed ${target.user.username}`,
-	// 	ephemeral: true
-	// };
+
+	/** @type { import("discord.js").InteractionReplyOptions } */
+	const replyOptions = {
+		content: `Welcomed ${target.user.username}`,
+		ephemeral: true
+	};
+
+	return replyOptions;
 }
 
 module.exports = new BotCommand(data, execute);

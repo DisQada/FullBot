@@ -1,6 +1,6 @@
 {
 	"name": "@disqada/halfbot-example",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "قالب جاهز لكود بوت دسكورد بإستخدام أداة halfbot",
 	"main": "bot/launch.js",
 	"type": "commonjs",

@@ -10,7 +10,11 @@ const data = {
  * @param { import("discord.js").GuildMember } member
  */
 async function execute(bot, member) {
-	const channelId = bot.vars.welcomeChannelId;
+	const channelId = bot?.vars?.welcomeChannelId;
+	if (!channelId) {
+		throw new Error("Welcome channel id is not provided");
+	}
+
 	/** @type { import("discord.js").TextChannel } */
 	const channel = member.guild.channels.cache.get(channelId);
 	if (!channel) {
