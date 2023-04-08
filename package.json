@@ -21,6 +21,7 @@
 		"email": "contact@nabilalsaiad.com",
 		"url": "https://links.nabilalsaiad.com"
 	},
+	"contributors": [],
 	"license": "MIT",
 	"dependencies": {
 		"@disqada/halfbot": "^0.2.1"
