@@ -1,8 +1,9 @@
+const { Events } = require("discord.js");
 const { BotEvent } = require("@disqada/halfbot");
 
 /** @type { import("@disqada/halfbot").BotEventData } */
 const data = {
-	name: "guildMemberAdd"
+	name: Events.GuildMemberAdd
 };
 
 /**
