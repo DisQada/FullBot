@@ -2,7 +2,7 @@ const { DiscordBot } = require("@disqada/halfbot");
 
 /** @type { import("@disqada/halfbot").DiscordBotData } */
 const botData = {
-	rootDirectory: "bot"
+    rootDirectory: "bot"
 };
 
 new DiscordBot(botData);
