@@ -1,18 +1,26 @@
 {
-	"env": {
-		"commonjs": true,
-		"es2021": true,
-		"node": true
-	},
-	"extends": "eslint:recommended",
-	"overrides": [],
-	"parserOptions": {
-		"ecmaVersion": "latest"
-	},
-	"rules": {
-		"no-unused-vars": "warn",
-		"no-empty": "warn",
-		"no-use-before-define": "error",
-		"no-case-declarations": "off"
-	}
+    "env": {
+        "node": true
+    },
+    "extends": ["eslint:recommended"],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "ignorePatterns": ["**/*.md"],
+    "rules": {
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"],
+        "prefer-const": "error",
+        "consistent-this": "error",
+        "comma-dangle": "error",
+        "comma-spacing": "error",
+        "comma-style": "error",
+        "no-trailing-spaces": "error",
+        "no-unused-vars": "warn",
+        "no-unused-labels": "warn",
+        "no-unused-expressions": "warn",
+        "array-callback-return": ["error", { "checkForEach": true }]
+    }
 }
