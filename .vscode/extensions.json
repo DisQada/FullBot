@@ -1,13 +1,13 @@
 {
-	"recommendations": [
-		"usernamehw.errorlens",
-		"dbaeumer.vscode-eslint",
-		"streetsidesoftware.code-spell-checker",
-		"aaron-bond.better-comments",
-		"xabikos.javascriptsnippets",
-		"chamboug.js-auto-backticks",
-		"sburg.vscode-javascript-booster",
-		"christian-kohler.path-intellisense",
-		"quicktype.quicktype"
-	]
+    "recommendations": [
+        "usernamehw.errorlens",
+        "dbaeumer.vscode-eslint",
+        "streetsidesoftware.code-spell-checker",
+        "aaron-bond.better-comments",
+        "xabikos.javascriptsnippets",
+        "chamboug.js-auto-backticks",
+        "sburg.vscode-javascript-booster",
+        "christian-kohler.path-intellisense",
+        "quicktype.quicktype"
+    ]
 }

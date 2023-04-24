@@ -37,7 +37,7 @@ async function execute(interaction) {
         target = interaction.targetMember;
     } else {
         target =
-			interaction.options.getMember(targetCode) ?? interaction.member;
+            interaction.options.getMember(targetCode) ?? interaction.member;
     }
 
     if (!target) {
