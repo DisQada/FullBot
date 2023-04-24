@@ -44,8 +44,8 @@ async function execute(interaction) {
         throw new Error("No member was provided for testing");
     }
 
-    const { getFilePath } = require("paths-manager");
-    const welcomeEventFilePath = getFilePath("guildMemberAdd.js");
+    const { aFilePath } = require("@disqada/pathfinder");
+    const welcomeEventFilePath = aFilePath("guildMemberAdd");
 
     /** @type { import("@disqada/halfbot").BotEvent } */
     const welcomeEvent = require(welcomeEventFilePath);
