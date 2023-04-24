@@ -1,35 +1,35 @@
 {
-  "name": "@disqada/halfbot-example",
-  "version": "0.2.1",
-  "description": "قالب جاهز لكود بوت دسكورد بإستخدام أداة halfbot",
-  "main": "bot/launch.js",
-  "type": "commonjs",
-  "scripts": {
-    "setup": "npm i & npm update",
-    "start": "node .",
-    "watch": "nodemon ."
-  },
-  "keywords": [
-    "Easy bot",
-    "Half bot",
-    "Discord bot",
-    "Example",
-    "Template"
-  ],
-  "author": {
-    "name": "The Alpha",
-    "email": "contact@nabilalsaiad.com",
-    "url": "https://links.nabilalsaiad.com"
-  },
-  "contributors": [],
-  "license": "MIT",
-  "dependencies": {
-    "@disqada/halfbot": "^0.2.1",
-    "@disqada/pathfinder": "^1.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^8.35.0",
-    "nodemon": "^2.0.20",
-    "prettier": "^2.8.7"
-  }
+    "name": "@disqada/halfbot-example",
+    "version": "1.1.1",
+    "description": "قالب جاهز لكود بوت دسكورد بإستخدام أداة halfbot",
+    "main": "bot/launch.js",
+    "type": "commonjs",
+    "scripts": {
+        "setup": "npm i & npm update",
+        "start": "node .",
+        "watch": "nodemon .",
+        "format": "eslint . --fix & prettier --write ."
+    },
+    "keywords": [
+        "Easy bot",
+        "Half bot",
+        "Discord bot",
+        "Example",
+        "Template"
+    ],
+    "author": {
+        "name": "The Alpha",
+        "email": "contact@nabilalsaiad.com",
+        "url": "https://links.nabilalsaiad.com"
+    },
+    "contributors": [],
+    "license": "MIT",
+    "dependencies": {
+        "@disqada/halfbot": "^1.1.1"
+    },
+    "devDependencies": {
+        "eslint": "^8.35.0",
+        "nodemon": "^2.0.20",
+        "prettier": "^2.8.7"
+    }
 }

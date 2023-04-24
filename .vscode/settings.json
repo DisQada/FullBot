@@ -12,7 +12,7 @@
     },
 
     "files.insertFinalNewline": true,
-    "files.eol": "\n",
+    "files.eol": "auto",
     "files.associations": {
         "*.js": "javascript",
         "*.ts": "typescript",
