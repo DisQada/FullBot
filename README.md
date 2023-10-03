@@ -1,87 +1,76 @@
-<div align="center">
+# HalfBot Example
 
-halfbot-example
+![version](https://img.shields.io/npm/v/@disqada/halfbot.svg?maxAge=3600)
+![downloads](https://img.shields.io/npm/dt/@disqada/halfbot.svg?maxAge=3600)
 
-<br>
+# Translations
 
-![](https://img.shields.io/npm/v/@disqada/halfbot.svg?maxAge=3600)
-![](https://img.shields.io/npm/dt/@disqada/halfbot.svg?maxAge=3600)
+[Arabic](README.ar.md) | [English](README.md)
 
-</div>
+# Table of Contents
 
-# الترجمات
+- [HalfBot Example](#halfbot-example)
+- [Translations](#translations)
+- [Table of Contents](#table-of-contents)
+- [About the project](#about-the-project)
+- [Before starting](#before-starting)
+  - [Environment](#environment)
+  - [Setup](#setup)
+  - [Programming](#programming)
+- [Employment](#employment)
 
-<div align="right">
+# About the project
 
-[العربية](README.md) | [English](README.en.md)
+Ready template for Discord bot code using halfbot tool
 
-</div>
+# Before starting
 
-<br>
+## Environment
 
----
+Inside the project there is a file named `useme.env`, rename it and remove `useme`
 
-# عن المشروع
+Inside the file you will find the following line
 
-قالب جاهز لكود بوت دسكورد بإستخدام أداة halfbot
-
-<br>
-<br>
-
-# قبل التشغيل
-
-## البيئة
-
-يوجد داخل المشروع ملف اسمه `useme.env` قم بتغيير إسمه وإزالة `useme`
-
-داخل الملف ستجد السطر التالي
-
-```
+```bash
 TOKEN=PUT_YOUR_TOKEN_HERE
 ```
 
-قم بإستبدال `PUT_YOUR_TOKEN_HERE` بتوكن البوت الخاص بك دون وضعه داخل علامات تنصيص ودون ترك أي مسافات
+Replace `PUT_YOUR_TOKEN_HERE` with your own bot token without putting it inside quotes and without leaving any spaces
 
-⚠️⚠️ لا تقم بمشاركة التوكن مع أي أحد ⚠️⚠️
+⚠️⚠️ DO NOT SHARE the TOKEN with anyone ⚠️⚠️
 
-<br>
+## Setup
 
-## الإعداد
+To download all the required packages, run the following command
 
-لتحميل جميع البكجات المطلوبة قم بتشغيل الأمر التالي
-
-```
+```bash
 npm run setup
 ```
 
-<br>
+## Programming
 
-## البرمجة
+You can now start modifying the data of the files in the following path
 
-يمكنك الآن البدء بتعديل بيانات الملفات في المسار التالي
-
-```
+```bash
 bot/config/
 ```
 
-وإضافة وظائف إضافية داخل المجلد الصحيح في المسار التالي
+And add extra functionalities inside the correct folder in the following path
 
-```
+```bash
 bot/modules/
 ```
 
-<br>
+# Employment
 
-# التشغيل
+Now all that remains is to run the bot and try it out, which you can do by running the following command
 
-كل ما تبقى الآن هو تشغيل البوت وتجربته، والذي ستقوم به من خلال تشغيل الأمر التالي
-
-```
+```bash
 npm run start
 ```
 
-أو يمكنك إستخدام الأمر التالي لجعل البوت يعيد الشتغيل بشكل تلقائي بعد كل تعديل وحفظ على الكود
+Or you can use the following command to make the bot restart automatically after every modification and save to the code
 
-```
+```bash
 npm run watch
 ```

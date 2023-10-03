@@ -1,7 +1,7 @@
 {
     "name": "@disqada/halfbot-example",
     "version": "1.1.1",
-    "description": "قالب جاهز لكود بوت دسكورد بإستخدام أداة halfbot",
+    "description": "A ready-to-use Discord bot template built with HalfBot",
     "main": "bot/launch.js",
     "type": "commonjs",
     "scripts": {
