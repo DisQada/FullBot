@@ -1,0 +1,13 @@
+# Ignore folders
+.git/
+node_modules/
+docs/
+dist/
+types/
+
+# Don't ignore folders
+!.vscode/
+!.github/
+
+# Ignore all Markdown files:
+*.md
