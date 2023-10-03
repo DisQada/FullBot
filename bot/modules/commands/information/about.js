@@ -1,49 +1,50 @@
-const { BotCommand, BotCommandDeployment } = require("@disqada/halfbot");
-
-/** @type { import("@disqada/halfbot").BotCommandData } */
+/**
+ * @type {import("@disqada/halfbot/src/entities/command").BotCommandData}
+ */
 const data = {
     name: "about",
     description: "General information about the bot",
-    deployment: BotCommandDeployment.Global,
     category: "information",
-    types: {
-        chatInput: true
-    }
+    module: "command",
+    defer: false
 };
 
 /**
- * @param { import("@disqada/halfbot").BotCommandInteraction } interaction
- * @returns { Promise<import("discord.js").InteractionReplyOptions | string | void> }
+ * @type {import("@disqada/halfbot/src/entities/command").BotCommandFunction}
+ * @param {import("@disqada/halfbot/src/entities/command").BotCommandInteraction & import("discord.js").ChatInputCommandInteraction} interaction
  */
 async function execute(interaction) {
     const { client } = interaction;
 
+    /** @type { import("discord.js").APIEmbedField[] } */
+    const fields = [
+        {
+            name: "Developer",
+            value: "The Alpha"
+        },
+        {
+            name: "Programming Language",
+            value: "JavaScript / TypeScript"
+        },
+        {
+            name: "All commands",
+            value: "Run the command '/commands'"
+        },
+        {
+            name: "Servers",
+            value: `Currently in ${client.guilds.cache.size} servers`
+        },
+        {
+            name: "Ping",
+            value: `${client.ws.ping}ms`
+        }
+    ];
+
     /** @type { import("discord.js").APIEmbed } */
     const embed = {
-        description: "The testing bot for 'halfbot-example' code",
+        description: "This bot is for testing 'fullbot' template",
         thumbnail: { url: interaction.client.user.displayAvatarURL() },
-        fields: [
-            {
-                name: "Developer",
-                value: "The Alpha"
-            },
-            {
-                name: "Programming Language",
-                value: "JavaScript / TypeScript"
-            },
-            {
-                name: "All commands",
-                value: "Run the command '/commands'"
-            },
-            {
-                name: "Servers",
-                value: `Currently in ${client.guilds.cache.size} servers`
-            },
-            {
-                name: "Ping",
-                value: `${client.ws.ping}ms`
-            }
-        ]
+        fields: fields
     };
 
     return {
@@ -51,4 +52,4 @@ async function execute(interaction) {
     };
 }
 
-module.exports = new BotCommand(data, execute);
+module.exports = { data, execute };

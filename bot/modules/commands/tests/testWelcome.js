@@ -1,13 +1,11 @@
 const { ApplicationCommandOptionType } = require("discord.js");
-const {
-    BotCommand,
-    BotCommandDeployment,
-    BotCommandContextMenuType
-} = require("@disqada/halfbot");
+const { BotCommandDeployment } = require("@disqada/halfbot");
 
 const targetCode = "target";
 
-/** @type { import("@disqada/halfbot").BotCommandData } */
+/**
+ * @type {import("@disqada/halfbot/src/entities/command").BotCommandData}
+ */
 const data = {
     name: "test-welcome",
     description: "Tests the welcome event on a member",
@@ -15,10 +13,7 @@ const data = {
     defaultMemberPermissions: ["Administrator"],
     deployment: BotCommandDeployment.DevGuild,
     category: "tests",
-    types: {
-        chatInput: true,
-        contextMenu: BotCommandContextMenuType.User
-    },
+    module: "command",
     options: [
         {
             name: targetCode,
@@ -29,7 +24,10 @@ const data = {
     ]
 };
 
-/** @param { import("@disqada/halfbot").BotCommandInteraction } interaction */
+/**
+ * @type {import("@disqada/halfbot/src/entities/command").BotCommandFunction}
+ * @param {import("@disqada/halfbot/src/entities/command").BotCommandInteraction & import("discord.js").ChatInputCommandInteraction} interaction
+ */
 async function execute(interaction) {
     /** @type { import("discord.js").GuildMember } */
     let target;
@@ -41,24 +39,26 @@ async function execute(interaction) {
     }
 
     if (!target) {
-        throw new Error("No member was provided for testing");
+        return "No member was provided for testing";
     }
 
-    const { aFilePath } = require("@disqada/pathfinder");
-    const welcomeEventFilePath = aFilePath("guildMemberAdd");
+    const { findPath } = require("@disqada/pathfinder");
+    const welcomeEventFilePath = findPath("guildMemberAdd");
 
-    /** @type { import("@disqada/halfbot").BotEvent } */
+    /** @type { import("@disqada/halfbot").BotEvent<"guildMemberAdd"> } */
     const welcomeEvent = require(welcomeEventFilePath);
+    if (!welcomeEvent) {
+        return "Couldn't find 'welcome event' command";
+    }
 
-    welcomeEvent.execute(interaction.bot, target);
+    await welcomeEvent.execute(interaction.bot, target);
 
     /** @type { import("discord.js").InteractionReplyOptions } */
     const replyOptions = {
-        content: `Welcomed ${target.user.username}`,
-        ephemeral: true
+        content: `Welcomed ${target.user.username}`
     };
 
     return replyOptions;
 }
 
-module.exports = new BotCommand(data, execute);
+module.exports = { data, execute };

@@ -1,45 +1,43 @@
-const { BotCommand, BotCommandDeployment } = require("@disqada/halfbot");
-
-/** @type { import("@disqada/halfbot").BotCommandData } */
+/**
+ * @type {import("@disqada/halfbot/src/entities/command").BotCommandData}
+ */
 const data = {
     name: "commands",
     description: "List all bot commands",
-    deployment: BotCommandDeployment.Global,
     category: "information",
-    types: { chatInput: true }
+    module: "command"
 };
 
 /**
- * @param { import("@disqada/halfbot").BotCommandInteraction } interaction
- * @returns { Promise<import("discord.js").InteractionReplyOptions | string | void> }
+ * @type {import("@disqada/halfbot/src/entities/command").BotCommandFunction}
+ * @param {import("@disqada/halfbot/src/entities/command").BotCommandInteraction & import("discord.js").ChatInputCommandInteraction} interaction
  */
 async function execute(interaction) {
     const categories = {};
 
     for (const command of interaction.bot.commands) {
         const { data } = command[1];
+        const category = data.category;
 
-        if (!categories[data.category]) {
-            categories[data.category] = [];
+        if (!categories[category]) {
+            categories[category] = [];
         }
 
-        categories[data.category]?.push({
+        categories[category]?.push({
             name: data.name,
             value: data.description,
             inline: true
         });
     }
 
+    /** @type { import("discord.js").APIEmbed[] } */
     const embeds = [];
 
     for (const category in categories) {
-        /** @type { import("discord.js").APIEmbed } */
-        const embed = {
+        embeds.push({
             title: category,
             fields: categories[category]
-        };
-
-        embeds.push(embed);
+        });
     }
 
     if (embeds.length === 0) {
@@ -49,4 +47,4 @@ async function execute(interaction) {
     return { embeds: embeds };
 }
 
-module.exports = new BotCommand(data, execute);
+module.exports = { data, execute };

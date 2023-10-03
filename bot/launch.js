@@ -1,12 +1,19 @@
 const { GatewayIntentBits } = require("discord.js");
 const { DiscordBot } = require("@disqada/halfbot");
+require("dotenv").config();
 
-/** @type { import("@disqada/halfbot").DiscordBotData } */
+/**
+ * @type {import("@disqada/halfbot").DiscordBotData}
+ */
 const botData = {
-    rootDirectory: "bot"
+    token: process.env.TOKEN,
+    rootDirectory: "bot",
+    dataDirectory: "bot/data"
 };
 
-/** @type { import("discord.js").ClientOptions } */
+/**
+ * @type {import("discord.js").ClientOptions}
+ */
 const clientOptions = {
     intents: [
         GatewayIntentBits.Guilds,
@@ -18,5 +25,5 @@ const clientOptions = {
 new DiscordBot(botData, clientOptions);
 
 process.on("unhandledRejection", async (err) => {
-    console.error("Unhandled promise rejection:", err);
+    console.error("Unhandled rejection:", err);
 });

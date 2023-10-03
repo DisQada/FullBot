@@ -52,7 +52,7 @@ npm run setup
 You can now start modifying the data of the files in the following path
 
 ```bash
-bot/config/
+bot/data/
 ```
 
 And add extra functionalities inside the correct folder in the following path

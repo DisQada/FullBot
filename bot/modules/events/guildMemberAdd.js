@@ -1,35 +1,41 @@
 const { Events } = require("discord.js");
-const { BotEvent } = require("@disqada/halfbot");
+const { applyStyle } = require("@disqada/halfbot");
 
-/** @type { import("@disqada/halfbot").BotEventData } */
+/**
+ * @type {import("@disqada/halfbot/src/entities/event").BotEventData}
+ */
 const data = {
-    name: Events.GuildMemberAdd
+    name: Events.GuildMemberAdd,
+    module: "event"
 };
 
 /**
- * @param { import("@disqada/halfbot").DiscordBot } bot
- * @param { import("discord.js").GuildMember } member
+ * @type {import("@disqada/halfbot/src/entities/event").BotEventFunction}
+ * @param {import("@disqada/halfbot").DiscordBot} bot
+ * @param {import("discord.js").ClientEvents["guildMemberAdd"][0]} member
+ * @returns {Promise<import("discord.js").InteractionReplyOptions>}
  */
 async function execute(bot, member) {
-    const channelId = bot?.vars?.welcomeChannelId;
+    const channelId = bot.data.vars.welcomeChannelId;
     if (!channelId) {
         throw new Error("Welcome channel id is not provided");
     }
 
     /** @type { import("discord.js").TextChannel } */
-    const channel = member.guild.channels.cache.get(channelId);
+    let channel = member.guild.channels.cache.get(channelId);
     if (!channel) {
-        throw new Error("Couldn't find welcoming channel");
+        channel = member.guild.channels.fetch(channelId);
+        if (!channel) {
+            throw new Error("Couldn't find welcoming channel");
+        }
     }
 
     /** @type { import("discord.js").APIEmbed } */
     let embed = {
-        title: "أهلا وسهلاً"
+        description: "👋 أهلا وسهلاً"
     };
 
-    if (bot.style) {
-        embed = bot.style.applyTo(embed);
-    }
+    embed = applyStyle(embed, bot.data.config.brand);
 
     /** @type { import("discord.js").MessageCreateOptions } */
     const message = {
@@ -40,4 +46,4 @@ async function execute(bot, member) {
     await channel.send(message);
 }
 
-module.exports = new BotEvent(data, execute);
+module.exports = { data, execute };
