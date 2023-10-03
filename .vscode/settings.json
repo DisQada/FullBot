@@ -30,13 +30,5 @@
         ".gitignore": true,
         "package-lock.json": true,
         "LICENSE": true
-    },
-
-    "cSpell.words": [
-        "@disqada/halfbot",
-        "disqada",
-        "halfbot",
-        "linebreak",
-        "vars"
-    ]
+    }
 }
