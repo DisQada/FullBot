@@ -1,34 +1,15 @@
 {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSaveMode": "file",
-    "editor.formatOnType": true,
     "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
     "editor.formatOnSave": true,
     "editor.trimAutoWhitespace": true,
-    "eslint.validate": ["javascript", "typescript"],
     "editor.codeActionsOnSave": {
         "source.fixAll": true,
         "source.organizeImports": true
     },
 
     "files.insertFinalNewline": true,
-    "files.eol": "auto",
-    "files.associations": {
-        "*.js": "javascript",
-        "*.ts": "typescript",
-        "*.json": "json",
-        "*.md": "markdown"
-    },
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "**/Thumbs.db": true,
-        "node_modules": true,
-        ".gitignore": true,
-        "package-lock.json": true,
-        "LICENSE": true
-    }
+    "files.eol": "auto"
 }
