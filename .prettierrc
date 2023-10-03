@@ -1,9 +1,9 @@
 {
     "tabWidth": 4,
-    "useTabs": false,
     "semi": true,
+    "useTabs": false,
     "singleQuote": false,
-    "trailingComma": "none",
     "endOfLine": "auto",
+    "trailingComma": "none",
     "embeddedLanguageFormatting": "off"
 }
