@@ -5,10 +5,11 @@
     "main": "bot/launch.js",
     "type": "commonjs",
     "scripts": {
-        "setup": "npm i & npm update",
+        "setup": "npm install",
         "start": "node .",
         "watch": "nodemon .",
-        "format": "eslint . --fix & prettier --write ."
+        "lint": "eslint . --fix",
+        "format": "prettier . --write"
     },
     "keywords": [
         "HalfBot",
