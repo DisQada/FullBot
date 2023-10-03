@@ -1,4 +1,4 @@
-# HalfBot Example
+# FullBot
 
 ![version](https://img.shields.io/npm/v/@disqada/halfbot.svg?maxAge=3600)
 ![downloads](https://img.shields.io/npm/dt/@disqada/halfbot.svg?maxAge=3600)
@@ -9,7 +9,7 @@
 
 # Table of Contents
 
-- [HalfBot Example](#halfbot-example)
+- [FullBot](#fullbot)
 - [Translations](#translations)
 - [Table of Contents](#table-of-contents)
 - [About the project](#about-the-project)

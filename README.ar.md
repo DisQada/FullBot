@@ -1,6 +1,6 @@
 <div align="right">
 
-# HalfBot Example
+# FullBot
 
 ![version](https://img.shields.io/npm/v/@disqada/halfbot.svg?maxAge=3600)
 ![downloads](https://img.shields.io/npm/dt/@disqada/halfbot.svg?maxAge=3600)
@@ -11,7 +11,7 @@
 
 # الفهرس
 
-- [HalfBot Example](#halfbot-example)
+- [FullBot](#fullbot)
 - [الترجمات](#الترجمات)
 - [الفهرس](#الفهرس)
 - [عن المشروع](#عن-المشروع)

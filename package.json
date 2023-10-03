@@ -1,5 +1,5 @@
 {
-    "name": "@disqada/halfbot-example",
+    "name": "@disqada/fullbot",
     "version": "1.1.1",
     "description": "A ready-to-use Discord bot template built with HalfBot",
     "main": "bot/launch.js",
@@ -11,8 +11,8 @@
         "format": "eslint . --fix & prettier --write ."
     },
     "keywords": [
-        "Easy bot",
-        "Half bot",
+        "HalfBot",
+        "FullBot",
         "Discord bot",
         "Example",
         "Template"
