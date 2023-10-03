@@ -1,12 +1,18 @@
 {
+    "root": true,
     "env": {
         "commonjs": true,
-        "es2021": true,
+        "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "script"
     },
-    "rules": {}
+    "extends": ["eslint:recommended", "plugin:jsdoc/recommended-error"],
+    "plugins": ["jsdoc"],
+    "rules": {
+        "jsdoc/require-param-description": "off",
+        "jsdoc/require-returns-description": "off"
+    }
 }
