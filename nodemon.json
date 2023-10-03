@@ -1,4 +1,7 @@
 {
-    "ignore": ["**/node_modules/**", ".eslintrc.json"],
-    "ext": "js,json"
+    "restartable": "rs",
+    "verbose": true,
+    "ext": "js,json",
+    "watch": ["bot", "package.json", ".env"],
+    "ignore": ["**/.*/**", "**/node_modules/**", "*.test.js"]
 }
