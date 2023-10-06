@@ -2,7 +2,7 @@ const { Events } = require("discord.js");
 const { applyStyle } = require("@disqada/halfbot");
 
 /**
- * @type {import("@disqada/halfbot/src/entities/event").BotEventData}
+ * @type {import("@disqada/halfbot/src/entities/event").BotEventData<"guildMemberAdd">}
  */
 const data = {
     name: Events.GuildMemberAdd,

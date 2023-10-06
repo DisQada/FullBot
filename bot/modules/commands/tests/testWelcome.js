@@ -4,7 +4,7 @@ const { BotCommandDeployment } = require("@disqada/halfbot");
 const targetCode = "target";
 
 /**
- * @type {import("@disqada/halfbot/src/entities/command").BotCommandData}
+ * @type {import("@disqada/halfbot/src/entities/command").BotCommandData & import("discord.js").ChatInputApplicationCommandData}
  */
 const data = {
     name: "test-welcome",

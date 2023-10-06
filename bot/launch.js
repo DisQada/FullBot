@@ -3,7 +3,7 @@ const { DiscordBot } = require("@disqada/halfbot");
 require("dotenv").config();
 
 /**
- * @type {import("@disqada/halfbot").DiscordBotData}
+ * @type {import("@disqada/halfbot/src/core/discordBot").DiscordBotData}
  */
 const botData = {
     token: process.env.TOKEN,
