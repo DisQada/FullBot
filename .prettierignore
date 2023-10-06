@@ -9,5 +9,9 @@ types/
 !.vscode/
 !.github/
 
-# Ignore all Markdown files:
+# Ignore Markdown files:
 *.md
+
+# Ignore special files
+LICENSE
+CHANGELOG
