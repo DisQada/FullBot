@@ -1,18 +1,23 @@
 {
-    "root": true,
-    "env": {
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "parserOptions": {
-        "ecmaVersion": "latest",
-        "sourceType": "script"
-    },
-    "extends": ["eslint:recommended", "plugin:jsdoc/recommended-error"],
-    "plugins": ["jsdoc"],
-    "rules": {
-        "jsdoc/require-param-description": "off",
-        "jsdoc/require-returns-description": "off"
-    }
+  "root": true,
+  "env": {
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "script"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:jsdoc/recommended",
+    "plugin:import/recommended",
+    "plugin:promise/recommended"
+  ],
+  "plugins": ["jsdoc", "import", "promise"],
+  "rules": {
+    "jsdoc/require-property-description": "off",
+    "jsdoc/require-param-description": "off",
+    "jsdoc/require-returns-description": "off"
+  }
 }

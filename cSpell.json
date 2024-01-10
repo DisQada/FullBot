@@ -1,12 +1,19 @@
 {
-    "language": "en-GB,ar",
-    "words": [
-        "@disqada/halfbot",
-        "disqada",
-        "fullbot",
-        "halfbot",
-        "linebreak",
-        "quicktype",
-        "vars"
-    ]
+  "caseSensitive": true,
+  "useGitignore": true,
+  "language": "en-GB,ar",
+  "files": ["./bot/**/*", "*.md"],
+  "words": [
+    "@disqada/halfbot",
+    "azkar",
+    "disqada",
+    "env",
+    "fullbot",
+    "halfbot",
+    "TikTok",
+    "vars",
+    "البوت",
+    "بوت",
+    "دسكورد"
+  ]
 }

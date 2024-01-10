@@ -1,39 +1,41 @@
 {
-    "name": "@disqada/fullbot",
-    "version": "2.1.0",
-    "description": "A ready-to-use Discord bot template built with HalfBot",
-    "main": "bot/launch.js",
-    "type": "commonjs",
-    "scripts": {
-        "setup": "npm install",
-        "start": "node .",
-        "watch": "nodemon .",
-        "lint": "eslint . --fix",
-        "format": "prettier . --write"
-    },
-    "keywords": [
-        "HalfBot",
-        "FullBot",
-        "Discord bot",
-        "Example",
-        "Template"
-    ],
-    "author": {
-        "name": "The Alpha",
-        "email": "contact@nabilalsaiad.com",
-        "url": "https://links.nabilalsaiad.com"
-    },
-    "contributors": [],
-    "license": "MIT",
-    "dependencies": {
-        "@disqada/halfbot": "^2.1.0",
-        "dotenv": "^16.3.1"
-    },
-    "devDependencies": {
-        "eslint": "^8.35.0",
-        "eslint-plugin-jsdoc": "^46.8.2",
-        "jsdoc": "^4.0.2",
-        "nodemon": "^3.0.1",
-        "prettier": "^2.8.7"
-    }
+  "name": "@disqada/fullbot",
+  "version": "3.1.2",
+  "description": "A ready-to-use Discord bot template built with @DisQada/HalfBot",
+  "main": "bot/launch.js",
+  "type": "commonjs",
+  "scripts": {
+    "setup": "npm ci",
+    "start": "node .",
+    "lint": "eslint . --fix --ignore-path .gitignore",
+    "format": "prettier . --write --ignore-path .gitignore"
+  },
+  "keywords": [
+    "halfbot",
+    "fullbot",
+    "bot",
+    "discord",
+    "discord bot",
+    "template",
+    "example"
+  ],
+  "author": {
+    "name": "The Alpha",
+    "email": "contact@nabilalsaiad.com",
+    "url": "https://links.nabilalsaiad.com"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "dependencies": {
+    "@disqada/halfbot": "^2.1.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "eslint": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jest": "*",
+    "eslint-plugin-jsdoc": "*",
+    "eslint-plugin-promise": "*",
+    "prettier": "*"
+  }
 }

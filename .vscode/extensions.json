@@ -1,12 +1,15 @@
 {
-    "recommendations": [
-        "usernamehw.errorlens",
-        "dbaeumer.vscode-eslint",
-        "streetsidesoftware.code-spell-checker",
-        "xabikos.javascriptsnippets",
-        "chamboug.js-auto-backticks",
-        "sburg.vscode-javascript-booster",
-        "christian-kohler.path-intellisense",
-        "quicktype.quicktype"
-    ]
+  "recommendations": [
+    "streetsidesoftware.code-spell-checker",
+    "mikestead.dotenv",
+    "usernamehw.errorlens",
+    "dbaeumer.vscode-eslint",
+    "visualstudioexptteam.vscodeintellicode",
+    "chamboug.js-auto-backticks",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "esbenp.prettier-vscode",
+    "yoavbls.pretty-ts-errors",
+    "streetsidesoftware.code-spell-checker-arabic"
+  ]
 }
