@@ -1,4 +1,9 @@
 {
+  "files.associations": {
+    "*.cjs": "javascriptcommonjs",
+    "*.mjs": "javascriptmodule"
+  },
+
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSaveMode": "file",
   "editor.formatOnType": false,
