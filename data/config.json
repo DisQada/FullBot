@@ -1,0 +1,22 @@
+{
+  "id": {
+    "guild": {
+      "dev": "918123575834181642",
+      "support": "1066510107019587714"
+    }
+  },
+  "brand": {
+    "name": "DisQada",
+    "colour": "#a341ff",
+    "logoUrl": "https://avatars.githubusercontent.com/u/125831329"
+  },
+  "presence": {
+    "status": "online",
+    "activities": [
+      {
+        "name": "You're server",
+        "type": 3
+      }
+    ]
+  }
+}

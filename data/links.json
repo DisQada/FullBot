@@ -1,0 +1,41 @@
+[
+  {
+    "category": "Main",
+    "urls": [
+      {
+        "name": "Website",
+        "value": "https://disqada.org"
+      },
+      {
+        "name": "GitHub",
+        "value": "https://github.com/DisQada"
+      }
+    ]
+  },
+  {
+    "category": "Community",
+    "urls": [
+      {
+        "name": "Discord",
+        "value": "https://discord.gg/2ncvy3spHY"
+      },
+      {
+        "name": "Reddit",
+        "value": "https://reddit.com/r/DisQada"
+      }
+    ]
+  },
+  {
+    "category": "Social Media",
+    "urls": [
+      {
+        "name": "LinkedIn",
+        "value": "https://linkedin.com/company/DisQada"
+      },
+      {
+        "name": "Facebook",
+        "value": "https://facebook.com/DisQada"
+      }
+    ]
+  }
+]

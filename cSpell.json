@@ -2,7 +2,7 @@
   "caseSensitive": true,
   "useGitignore": true,
   "language": "en-GB,ar",
-  "files": ["./bot/**/*", "*.md"],
+  "files": ["./bot/**/*", "./data/**/*", "*.md"],
   "words": [
     "@disqada/halfbot",
     "azkar",
@@ -10,10 +10,17 @@
     "env",
     "fullbot",
     "halfbot",
-    "TikTok",
-    "vars",
+    "أذونات",
+    "إجعل",
+    "الأذونات",
     "البوت",
+    "البوتات",
+    "النطاقات",
     "بوت",
-    "دسكورد"
+    "بوتك",
+    "دسكورد",
+    "للبوت",
+    "والأذونات",
+    "والصقه"
   ]
 }

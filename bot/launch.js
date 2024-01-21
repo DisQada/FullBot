@@ -1,29 +1,55 @@
-const { GatewayIntentBits } = require("discord.js");
-const { DiscordBot } = require("@disqada/halfbot");
-require("dotenv").config();
+const { GatewayIntentBits } = require('discord.js')
+const { DiscordBot } = require('@disqada/halfbot')
+require('dotenv').config()
 
-/**
- * @type {import("@disqada/halfbot/src/core/discordBot").DiscordBotData}
- */
-const botData = {
-    token: process.env.TOKEN,
-    rootDirectory: "bot",
-    dataDirectory: "bot/data"
-};
-
-/**
- * @type {import("discord.js").ClientOptions}
- */
-const clientOptions = {
+const bot = new DiscordBot({
+  token: process.env.TOKEN || '',
+  directories: {
+    root: 'bot',
+    data: 'data'
+  },
+  client: {
     intents: [
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.GuildMembers
+      GatewayIntentBits.Guilds,
+      GatewayIntentBits.GuildMessages,
+      GatewayIntentBits.GuildMembers
     ]
-};
+  }
+})
 
-new DiscordBot(botData, clientOptions);
+bot.on('ready', async () => {
+  process.on('unhandledRejection', logRejection)
+})
 
-process.on("unhandledRejection", async (err) => {
-    console.error("Unhandled rejection:", err);
-});
+/**
+ * Logs an unhandled rejection error and sends a message to the error channel.
+ * @param {Error} err - The unhandled rejection error.
+ * @returns {Promise<void>} - A promise that resolves when the error is logged and the message is sent.
+ * @async
+ */
+async function logRejection(err) {
+  console.error('Unhandled rejection:', err)
+
+  try {
+    const guildId = bot.data.config.id.guild.dev
+    // @ts-expect-error
+    const channelId = bot.data.id.channel.errors
+
+    if (!guildId || !channelId) {
+      return
+    }
+
+    let msg = `# ${err.message}`
+    if (err.stack) {
+      msg += `\n${err.stack}`
+    }
+
+    const guild = await bot.guilds.fetch(guildId)
+    const channel = await guild.channels.fetch(channelId)
+    if (channel && channel.isTextBased()) {
+      channel.send({ content: msg })
+    }
+  } catch (err) {
+    console.error('err:', err)
+  }
+}
