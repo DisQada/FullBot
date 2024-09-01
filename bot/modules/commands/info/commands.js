@@ -1,5 +1,5 @@
 /** @type {import('@disqada/halfbot').CommandData} */
-const data = {
+export const data = {
   module: 'command',
   name: 'commands',
   description: 'List all bot commands',
@@ -8,7 +8,7 @@ const data = {
 }
 
 /** @type {import('@disqada/halfbot').CommandFunction} */
-function execute(interaction) {
+export function execute(interaction) {
   /** @type {Map<string, import('@disqada/halfbot').EmbedField[]>} */
   const categories = new Map()
 
@@ -48,4 +48,4 @@ function execute(interaction) {
   return { embeds: embeds }
 }
 
-module.exports = { data, execute }
+export default { data, execute }

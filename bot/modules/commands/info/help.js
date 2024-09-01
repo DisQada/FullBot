@@ -1,5 +1,5 @@
 /** @type {import("@disqada/halfbot").CommandData} */
-const data = {
+export const data = {
   module: 'command',
   name: 'help',
   description: 'Starter guide and the support server link',
@@ -7,7 +7,7 @@ const data = {
 }
 
 /** @type {import("@disqada/halfbot").CommandFunction} */
-async function execute(interaction) {
+export async function execute(interaction) {
   const bot = interaction.bot
 
   const guild = await bot.guilds.fetch(
@@ -79,4 +79,4 @@ async function createNewInvite(guild) {
   return invite
 }
 
-module.exports = { data, execute }
+export default { data, execute }

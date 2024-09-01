@@ -1,6 +1,7 @@
-const { GatewayIntentBits } = require('discord.js')
-const { DiscordBot } = require('@disqada/halfbot')
-require('dotenv').config()
+import { GatewayIntentBits } from 'discord.js'
+import { DiscordBot } from '@disqada/halfbot'
+import { config } from 'dotenv'
+config()
 
 const bot = new DiscordBot({
   token: process.env.TOKEN || '',

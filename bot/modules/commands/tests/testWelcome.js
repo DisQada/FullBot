@@ -1,9 +1,9 @@
-const { ApplicationCommandOptionType } = require('discord.js')
+import { ApplicationCommandOptionType } from 'discord.js'
 
 const targetCode = 'target'
 
 /** @type {import('@disqada/halfbot').CommandData} */
-const data = {
+export const data = {
   module: 'command',
   name: 'test-welcome',
   description: 'Tests the welcome event on a member',
@@ -20,8 +20,7 @@ const data = {
 }
 
 /** @type {import('@disqada/halfbot').CommandFunction} */
-async function execute(interaction) {
-  /** @type {import('discord.js').GuildMember} */
+export async function execute(interaction) {
   // @ts-expect-error
   const target = interaction.options.getMember(targetCode) ?? interaction.member
   if (!target) {
@@ -50,4 +49,4 @@ async function execute(interaction) {
   return replyOptions
 }
 
-module.exports = { data, execute }
+export default { data, execute }

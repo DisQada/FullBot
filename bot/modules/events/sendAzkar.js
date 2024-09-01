@@ -1,14 +1,14 @@
-const { applyStyle } = require('@disqada/halfbot')
+import { applyStyle } from '@disqada/halfbot'
 
 /** @type {import('@disqada/halfbot').RepeatingEventData} */
-const data = {
+export const data = {
   module: 'event-repeat',
   firstWait: '30m',
   wait: '1d'
 }
 
 /** @type {import('@disqada/halfbot').RepeatingEventFunction} */
-async function execute(bot) {
+export async function execute(bot) {
   const guildId = bot.data.config.id.guild.support
   if (!guildId) {
     throw new Error('Dev guild id not found')
@@ -52,4 +52,4 @@ async function execute(bot) {
   await channel.send({ embeds: [embed] })
 }
 
-module.exports = { data, execute }
+export default { data, execute }

@@ -1,14 +1,14 @@
-const { Events } = require('discord.js')
-const { applyStyle } = require('@disqada/halfbot')
+import { Events } from 'discord.js'
+import { applyStyle } from '@disqada/halfbot'
 
 /** @type {import('@disqada/halfbot').ClientEventData<"guildMemberAdd">} */
-const data = {
+export const data = {
   module: 'event',
   name: Events.GuildMemberAdd
 }
 
 /** @type {import('@disqada/halfbot').ClientEventFunction<"guildMemberAdd">} */
-async function execute(bot, member) {
+export async function execute(bot, member) {
   const guild = member.guild
   if (!guild) {
     throw new Error('Guild is not available')
@@ -42,4 +42,4 @@ async function execute(bot, member) {
   })
 }
 
-module.exports = { data, execute }
+export default { data, execute }

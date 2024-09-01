@@ -1,5 +1,5 @@
 /** @type {import('@disqada/halfbot').CommandData} */
-const data = {
+export const data = {
   module: 'command',
   name: 'links',
   description: 'The official links of the brand',
@@ -8,7 +8,7 @@ const data = {
 }
 
 /** @type {import('@disqada/halfbot').CommandFunction} */
-function execute(interaction) {
+export function execute(interaction) {
   /** @type {LinksObject[]} */
   // @ts-expect-error
   const links = interaction.bot.data.links
@@ -29,7 +29,7 @@ function execute(interaction) {
   return { embeds: [embed] }
 }
 
-module.exports = { data, execute }
+export default { data, execute }
 
 /**
  * @typedef {object} LinksObject
