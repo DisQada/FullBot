@@ -5,9 +5,7 @@
   "main": "bot/launch.js",
   "type": "commonjs",
   "scripts": {
-    "setup": "npm ci",
     "start": "node .",
-    "lint": "eslint . --fix --ignore-path .gitignore",
     "format": "prettier . --write --ignore-path .gitignore"
   },
   "keywords": [
@@ -19,11 +17,7 @@
     "template",
     "example"
   ],
-  "author": {
-    "name": "The Alpha",
-    "email": "contact@nabilalsaiad.com",
-    "url": "https://links.nabilalsaiad.com"
-  },
+  "author": "DisQada <hi@disqada.org> (https://links.disqada.org)",
   "contributors": [],
   "license": "MIT",
   "dependencies": {
@@ -31,11 +25,6 @@
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
-    "eslint": "*",
-    "eslint-plugin-import": "*",
-    "eslint-plugin-jest": "*",
-    "eslint-plugin-jsdoc": "*",
-    "eslint-plugin-promise": "*",
-    "prettier": "*"
+    "prettier": "^3.3.3"
   }
 }

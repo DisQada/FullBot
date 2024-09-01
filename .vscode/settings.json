@@ -1,47 +1,62 @@
 {
-  "files.associations": {
-    "*.cjs": "javascriptcommonjs",
-    "*.mjs": "javascriptmodule"
-  },
-
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSaveMode": "file",
-  "editor.formatOnType": false,
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
   "editor.trimAutoWhitespace": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": "always",
-    "source.organizeImports": "always"
-  },
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
 
-  "[markdown]": {
-    "editor.defaultFormatter": "yzhang.markdown-all-in-one",
-    "editor.formatOnSaveMode": "file",
-    "editor.formatOnType": false,
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": true,
-    "editor.trimAutoWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.eol": "\n",
 
-    "editor.unicodeHighlight.ambiguousCharacters": false,
-    "editor.unicodeHighlight.invisibleCharacters": false,
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.wordWrap": "off",
-    "editor.quickSuggestions": {
-      "comments": "off",
-      "strings": "off",
-      "other": "off"
-    },
-
-    "cSpell.fixSpellingWithRenameProvider": true,
-    "cSpell.advanced.feature.useReferenceProviderWithRename": true,
-    "cSpell.advanced.feature.useReferenceProviderRemove": "/^#+\\s/"
-  },
+  "[markdown]": { "editor.defaultFormatter": "yzhang.markdown-all-in-one" },
   "markdown.replaceSmartQuotes": true,
+  "markdown.occurrencesHighlight.enabled": true,
+  "markdown.extension.tableFormatter.normalizeIndentation": true,
 
   "javascript.suggest.jsdoc.generateReturns": true,
   "javascript.suggest.completeJSDocs": true,
   "javascript.suggest.autoImports": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
 
-  "js/ts.implicitProjectConfig.checkJs": true
+  "todo-tree.highlights.enabled": true,
+  "todo-tree.tree.buttons.export": true,
+  "todo-tree.tree.showCountsInTree": true,
+  "todo-tree.tree.buttons.viewStyle": false,
+  "todo-tree.tree.buttons.groupByTag": false,
+  "todo-tree.tree.showCurrentScanMode": false,
+  "todo-tree.regex.regexCaseSensitive": false,
+  "todo-tree.general.showActivityBarBadge": true,
+  "todo-tree.tree.hideIconsWhenGroupedByTag": true,
+  "todo-tree.general.showIconsInsteadOfTagsInStatusBar": true,
+  "todo-tree.general.exportPath": "${workspace}/todo-tree-%H_%M-%d_%m_%Y.json",
+  "todo-tree.tree.labelFormat": "${after}",
+  "todo-tree.tree.tooltipFormat": "line=${line}, column=${column}",
+  "todo-tree.filtering.includeGlobs": ["**/*.{js,cjs,mjs,md,txt}"],
+  "todo-tree.filtering.excludeGlobs": [
+    "**/{node_modules,dist,types,typings,build,.next,.nuxt,.vscode,.git,.idea,out,doc,docs}/**",
+    "CHANGELOG.md",
+    "{LICENSE,LICENSE.*}"
+  ],
+  "todo-tree.general.tags": ["LOCK", "BUG", "FIX", "TODO", "BOOKMARK", "NOTE", "///"],
+  "todo-tree.general.tagGroups": {
+    "FIX": ["FIXME", "FIXIT"]
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "gutterIcon": true,
+    "type": "text-and-comment",
+    "foreground": "#ffffff",
+    "opacity": 0
+  },
+  "todo-tree.highlights.customHighlight": {
+    "LOCK": { "icon": "lock", "foreground": "#00ff88" },
+    "BUG": { "icon": "bug", "foreground": "#ff0000" },
+    "FIX": { "icon": "tools", "foreground": "#ff8800" },
+    "TODO": { "icon": "check-circle", "foreground": "#ffff00" },
+    "BOOKMARK": { "icon": "bookmark" },
+    "NOTE": { "icon": "comment", "hideFromTree": true },
+    "///": { "foreground": "#3d4e3c", "hideFromTree": true }
+  },
+  "todo-tree.highlights.foregroundColourScheme": [],
+  "todo-tree.highlights.backgroundColourScheme": []
 }
