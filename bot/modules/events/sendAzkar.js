@@ -1,13 +1,14 @@
+/** @import {RepeatingEventData, RepeatingEventFunction, Embed} from '@disqada/halfbot' */
 import { applyStyle } from '@disqada/halfbot'
 
-/** @type {import('@disqada/halfbot').RepeatingEventData} */
+/** @type {RepeatingEventData} */
 export const data = {
   module: 'event-repeat',
   firstWait: '30m',
   wait: '1d'
 }
 
-/** @type {import('@disqada/halfbot').RepeatingEventFunction} */
+/** @type {RepeatingEventFunction} */
 export async function execute(bot) {
   const guildId = bot.data.config.id.guild.support
   if (!guildId) {
@@ -42,7 +43,7 @@ export async function execute(bot) {
 
   const max = azkar.length
   const rand = Math.floor(Math.random() * max)
-  /** @type {import('@disqada/halfbot').Embed} */
+  /** @type {Embed} */
   let embed = {
     description: azkar[rand]
   }

@@ -1,4 +1,7 @@
-/** @type {import("@disqada/halfbot").CommandData} */
+/** @import {Guild, Invite, Role} from 'discord.js' */
+/** @import {CommandData, CommandFunction, Embed} from '@disqada/halfbot' */
+
+/** @type {CommandData} */
 export const data = {
   module: 'command',
   name: 'help',
@@ -6,7 +9,8 @@ export const data = {
   category: 'information'
 }
 
-/** @type {import("@disqada/halfbot").CommandFunction} */
+// @ts-expect-error
+/** @type {CommandFunction} */
 export async function execute(interaction) {
   const bot = interaction.bot
 
@@ -23,7 +27,7 @@ export async function execute(interaction) {
 
   const invite = botInvites.first() ?? (await createNewInvite(guild))
 
-  /** @type {import('@disqada/halfbot').Embed[]} */
+  /** @type {Embed[]} */
   const embeds = [
     {
       title: 'I want to build my own bot',
@@ -43,11 +47,11 @@ export async function execute(interaction) {
 }
 
 /**
- * @param {import('discord.js').Guild} guild
- * @returns {Promise<import('discord.js').Invite>}
+ * @param {Guild} guild
+ * @returns {Promise<Invite>}
  */
 async function createNewInvite(guild) {
-  /** @type {import('discord.js').Role} */
+  /** @type {Role} */
   // @ts-expect-error
   const everyoneRole = guild.roles.cache.find((r) => r.name === '@everyone')
 

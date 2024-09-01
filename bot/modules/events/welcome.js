@@ -1,13 +1,15 @@
+/** @import {ClientEventData, ClientEventFunction, Embed} from '@disqada/halfbot' */
 import { Events } from 'discord.js'
 import { applyStyle } from '@disqada/halfbot'
 
-/** @type {import('@disqada/halfbot').ClientEventData<"guildMemberAdd">} */
+/** @type {ClientEventData<'guildMemberAdd'>} */
 export const data = {
   module: 'event',
   name: Events.GuildMemberAdd
 }
 
-/** @type {import('@disqada/halfbot').ClientEventFunction<"guildMemberAdd">} */
+// @ts-expect-error
+/** @type {ClientEventFunction<'guildMemberAdd'>} */
 export async function execute(bot, member) {
   const guild = member.guild
   if (!guild) {
@@ -29,7 +31,7 @@ export async function execute(bot, member) {
     throw new Error('Azkar channel is not text based')
   }
 
-  /** @type {import('@disqada/halfbot').Embed} */
+  /** @type {Embed} */
   let embed = {
     description: '👋 Hello | أهلاً 👋'
   }

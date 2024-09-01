@@ -1,4 +1,6 @@
-/** @type {import('@disqada/halfbot').CommandData} */
+/** @import {CommandData, CommandFunction, Embed} from '@disqada/halfbot' */
+
+/** @type {CommandData} */
 export const data = {
   module: 'command',
   name: 'about',
@@ -6,13 +8,14 @@ export const data = {
   category: 'information'
 }
 
-/** @type {import('@disqada/halfbot').CommandFunction} */
+// @ts-expect-error
+/** @type {CommandFunction} */
 export async function execute(interaction) {
   const { client } = interaction
   const app = await interaction.client.application.fetch()
   const guilds = await client.guilds.fetch()
 
-  /** @type {import('@disqada/halfbot').Embed} */
+  /** @type {Embed} */
   const embed = {
     title: app.name || '',
     description: app.description || '',

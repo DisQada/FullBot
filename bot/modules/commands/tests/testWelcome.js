@@ -1,8 +1,10 @@
+/** @import {GuildMember, InteractionReplyOptions} from 'discord.js' */
+/** @import {CommandData, CommandFunction, ClientEvent} from '@disqada/halfbot' */
 import { ApplicationCommandOptionType } from 'discord.js'
 
 const targetCode = 'target'
 
-/** @type {import('@disqada/halfbot').CommandData} */
+/** @type {CommandData} */
 export const data = {
   module: 'command',
   name: 'test-welcome',
@@ -19,8 +21,10 @@ export const data = {
   ]
 }
 
-/** @type {import('@disqada/halfbot').CommandFunction} */
+// @ts-expect-error
+/** @type {CommandFunction} */
 export async function execute(interaction) {
+  /** @type {GuildMember} */
   // @ts-expect-error
   const target = interaction.options.getMember(targetCode) ?? interaction.member
   if (!target) {
@@ -33,7 +37,7 @@ export async function execute(interaction) {
     return "Couldn't find 'welcome' event"
   }
 
-  /** @type {import('@disqada/halfbot').ClientEvent<"guildMemberAdd">} */
+  /** @type {ClientEvent<'guildMemberAdd'>} */
   const welcomeEvent = require(welcomeEventPath.fullPath)
   if (!welcomeEvent) {
     return "Couldn't find 'welcome' event"
@@ -41,7 +45,7 @@ export async function execute(interaction) {
 
   await welcomeEvent.execute(interaction.bot, target)
 
-  /** @type { import('discord.js').InteractionReplyOptions } */
+  /** @type {InteractionReplyOptions} */
   const replyOptions = {
     content: `Welcomed ${target.user.username}`
   }

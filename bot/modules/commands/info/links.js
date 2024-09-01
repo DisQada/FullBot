@@ -1,4 +1,6 @@
-/** @type {import('@disqada/halfbot').CommandData} */
+/** @import {CommandData, CommandFunction, Embed} from '@disqada/halfbot' */
+
+/** @type {CommandData} */
 export const data = {
   module: 'command',
   name: 'links',
@@ -7,13 +9,13 @@ export const data = {
   defer: false
 }
 
-/** @type {import('@disqada/halfbot').CommandFunction} */
+/** @type {CommandFunction} */
 export function execute(interaction) {
   /** @type {LinksObject[]} */
   // @ts-expect-error
   const links = interaction.bot.data.links
 
-  /** @type {import('@disqada/halfbot').Embed} */
+  /** @type {Embed} */
   const embed = {
     description: links
       .map((obj) => {

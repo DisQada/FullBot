@@ -1,4 +1,6 @@
-/** @type {import('@disqada/halfbot').CommandData} */
+/** @import {CommandData, CommandFunction, Embed, EmbedField} from '@disqada/halfbot' */
+
+/** @type {CommandData} */
 export const data = {
   module: 'command',
   name: 'commands',
@@ -7,9 +9,9 @@ export const data = {
   defer: false
 }
 
-/** @type {import('@disqada/halfbot').CommandFunction} */
+/** @type {CommandFunction} */
 export function execute(interaction) {
-  /** @type {Map<string, import('@disqada/halfbot').EmbedField[]>} */
+  /** @type {Map<string, EmbedField[]>} */
   const categories = new Map()
 
   for (const command of interaction.bot.commands) {
@@ -31,7 +33,7 @@ export function execute(interaction) {
     categories.set(category, arr)
   }
 
-  /** @type { import('@disqada/halfbot').Embed[] } */
+  /** @type {Embed[]} */
   const embeds = []
 
   for (const iterator of categories) {
