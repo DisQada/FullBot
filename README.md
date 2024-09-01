@@ -60,6 +60,7 @@ Go to the `Bot` section left on the navigation bar then copy the token if it's s
 Go to the `URL Generator` section under `OAuth2` section left on the navigation bar, here we can generate an invite link for the bot so you can invite it to your server
 
 Choose the following for starting:
+
 - Scopes: bot, applications.commands
 - Bot Permissions: Administrator
 
@@ -82,6 +83,7 @@ Go to the `General` section under `OAuth2` left in the navigation bar, press on 
 ![default authorisation link](images/image-6.png)
 
 A scopes-and-permissions box checks will show up, choose the scopes and permissions you want then click save, now your bot has a beautiful invite button on it's profile
+
 > Never choose the `Administrator` permissions since it gives full permissions and usually people won't trust bots asking for this permission turned on, so just choose the minimal required permissions for your bot to run
 
 ![invite bot button](images/image-7.png)
@@ -158,6 +160,7 @@ You can run the following npm scripts for linting and formatting respectively
 ```bash
 npm run lint
 ```
+
 ```bash
 npm run format
 ```

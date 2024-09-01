@@ -19,9 +19,7 @@ export function execute(interaction) {
     const category = data.category ?? '-'
 
     let arr = categories.get(category)
-    if (!arr) {
-      arr = []
-    }
+    if (!arr) arr = []
 
     arr.push({
       name: data.name,
@@ -35,19 +33,11 @@ export function execute(interaction) {
 
   /** @type {Embed[]} */
   const embeds = []
+  for (const [title, fields] of categories) embeds.push({ title, fields })
 
-  for (const iterator of categories) {
-    embeds.push({
-      title: iterator[0],
-      fields: iterator[1]
-    })
-  }
+  if (embeds.length === 0) return 'No commands available'
 
-  if (embeds.length === 0) {
-    return 'No commands available'
-  }
-
-  return { embeds: embeds }
+  return { embeds }
 }
 
 export default { data, execute }

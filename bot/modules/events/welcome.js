@@ -12,29 +12,19 @@ export const data = {
 /** @type {ClientEventFunction<'guildMemberAdd'>} */
 export async function execute(bot, member) {
   const guild = member.guild
-  if (!guild) {
-    throw new Error('Guild is not available')
-  }
+  if (!guild) throw new Error('Guild is not available')
 
   // @ts-expect-error
   const channelId = bot.data.id.channel.welcome
-  if (!channelId) {
-    throw new Error('Welcome channel id is not provided')
-  }
+  if (!channelId) throw new Error('Welcome channel id is not provided')
 
   const channel = await guild.channels.fetch(channelId)
-  if (!channel) {
-    throw new Error("Couldn't find welcoming channel")
-  }
+  if (!channel) throw new Error("Couldn't find welcoming channel")
 
-  if (!channel.isTextBased()) {
-    throw new Error('Azkar channel is not text based')
-  }
+  if (!channel.isTextBased()) throw new Error('Azkar channel is not text based')
 
   /** @type {Embed} */
-  let embed = {
-    description: '👋 Hello | أهلاً 👋'
-  }
+  let embed = { description: '👋 Hello | أهلاً 👋' }
 
   // @ts-expect-error
   embed = applyStyle(embed, bot.data.config.brand)

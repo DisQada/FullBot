@@ -14,16 +14,12 @@ export const data = {
 export async function execute(interaction) {
   const bot = interaction.bot
 
-  const guild = await bot.guilds.fetch(
-    // @ts-expect-error
-    bot.data.config.id.guild.support
-  )
+  // @ts-expect-error
+  const guild = await bot.guilds.fetch(bot.data.config.id.guild.support)
 
   const invites = await guild.invites.fetch()
-  const botInvites = invites.filter(
-    // @ts-expect-error
-    (invite) => invite.inviter?.id === bot.user.id && invite.maxAge === 0
-  )
+  // @ts-expect-error
+  const botInvites = invites.filter((invite) => invite.inviter?.id === bot.user.id && invite.maxAge === 0)
 
   const invite = botInvites.first() ?? (await createNewInvite(guild))
 
@@ -43,7 +39,7 @@ export async function execute(interaction) {
     }
   ]
 
-  return { embeds: embeds }
+  return { embeds }
 }
 
 /**
@@ -60,11 +56,8 @@ async function createNewInvite(guild) {
   let channelId = guild.rulesChannelId
   if (!channelId) {
     const channels = await guild.channels.fetch()
-    for (const iterator of channels) {
-      const channel = iterator[1]
-      if (!channel) {
-        continue
-      }
+    for (const [_, channel] of channels) {
+      if (!channel) continue
 
       const permissions = channel.permissionsFor(everyoneRole)
       const isPublic = permissions.has('ViewChannel')

@@ -27,28 +27,20 @@ export async function execute(interaction) {
   /** @type {GuildMember} */
   // @ts-expect-error
   const target = interaction.options.getMember(targetCode) ?? interaction.member
-  if (!target) {
-    return 'No member was provided for welcoming'
-  }
+  if (!target) return 'No member was provided for welcoming'
 
   const { findPath } = require('@disqada/pathfinder')
   const welcomeEventPath = findPath({ name: 'welcome' })
-  if (!welcomeEventPath) {
-    return "Couldn't find 'welcome' event"
-  }
+  if (!welcomeEventPath) return "Couldn't find 'welcome' event"
 
   /** @type {ClientEvent<'guildMemberAdd'>} */
   const welcomeEvent = require(welcomeEventPath.fullPath)
-  if (!welcomeEvent) {
-    return "Couldn't find 'welcome' event"
-  }
+  if (!welcomeEvent) return "Couldn't find 'welcome' event"
 
   await welcomeEvent.execute(interaction.bot, target)
 
   /** @type {InteractionReplyOptions} */
-  const replyOptions = {
-    content: `Welcomed ${target.user.username}`
-  }
+  const replyOptions = { content: `Welcomed ${target.user.username}` }
 
   return replyOptions
 }

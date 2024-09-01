@@ -20,9 +20,7 @@ export async function execute(interaction) {
     title: app.name || '',
     description: app.description || '',
     // 'This bot is for testing [FullBot](https://github.com/DisQada/FullBot) code template',
-    thumbnail: {
-      url: client.user.displayAvatarURL()
-    },
+    thumbnail: { url: client.user.displayAvatarURL() },
     fields: [
       {
         name: 'Owner',
@@ -47,9 +45,7 @@ export async function execute(interaction) {
     ]
   }
 
-  return {
-    embeds: [embed]
-  }
+  return { embeds: [embed] }
 }
 
 export default { data, execute }

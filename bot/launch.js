@@ -10,17 +10,11 @@ const bot = new DiscordBot({
     data: 'data'
   },
   client: {
-    intents: [
-      GatewayIntentBits.Guilds,
-      GatewayIntentBits.GuildMessages,
-      GatewayIntentBits.GuildMembers
-    ]
+    intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMembers]
   }
 })
 
-bot.on('ready', async () => {
-  process.on('unhandledRejection', logRejection)
-})
+bot.on('ready', async () => process.on('unhandledRejection', logRejection))
 
 /**
  * Logs an unhandled rejection error and sends a message to the error channel.
@@ -36,20 +30,14 @@ async function logRejection(err) {
     // @ts-expect-error
     const channelId = bot.data.id.channel.errors
 
-    if (!guildId || !channelId) {
-      return
-    }
+    if (!guildId || !channelId) return
 
     let msg = `# ${err.message}`
-    if (err.stack) {
-      msg += `\n${err.stack}`
-    }
+    if (err.stack) msg += `\n${err.stack}`
 
     const guild = await bot.guilds.fetch(guildId)
     const channel = await guild.channels.fetch(channelId)
-    if (channel && channel.isTextBased()) {
-      channel.send({ content: msg })
-    }
+    if (channel && channel.isTextBased()) channel.send({ content: msg })
   } catch (err) {
     console.error('err:', err)
   }

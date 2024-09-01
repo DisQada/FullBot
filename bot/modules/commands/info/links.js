@@ -18,13 +18,7 @@ export function execute(interaction) {
   /** @type {Embed} */
   const embed = {
     description: links
-      .map((obj) => {
-        return `### ${obj.category}\n${obj.urls
-          .map((url) => {
-            return `[${url.name}](${url.value})`
-          })
-          .join(' | ')}`
-      })
+      .map((obj) => `### ${obj.category}\n${obj.urls.map((url) => `[${url.name}](${url.value})`).join(' | ')}`)
       .join('\n')
   }
 
