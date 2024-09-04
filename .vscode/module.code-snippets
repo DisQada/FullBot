@@ -1,58 +1,63 @@
 {
-  "HalfBot Command file (ES Module)": {
+  "HalfBot Command file (MJS)": {
     "scope": "javascript,javascriptmodule",
     "prefix": "command-m",
     "body": [
-      "/** @type {import('@disqada/halfbot').CommandData} */",
-      "const data = {",
+      "/** @import {CommandData, CommandFunction} from '@disqada/halfbot' */",
+      "",
+      "/** @type {CommandData} */",
+      "export const data = {",
       "  module: 'command',",
       "  name: '$1',",
       "  description: '$2',",
       "  category: '$3',",
       "}",
       "",
-      "/** @type {import('@disqada/halfbot').CommandFunction} */",
-      "async function execute(interaction) {",
+      "/** @type {CommandFunction} */",
+      "export async function execute(interaction) {",
       "  $0",
       "}",
       "",
       "export default { data, execute }"
     ]
   },
-  "HalfBot ClientEvent file (ES Module)": {
+  "HalfBot ClientEvent file (MJS)": {
     "scope": "javascript,javascriptmodule",
     "prefix": "event-client-m",
     "body": [
+      "/** @import {ClientEventData, ClientEventFunction} from '@disqada/halfbot' */",
       "import { Events } from 'discord.js'",
       "",
-      "/** @type {import('@disqada/halfbot').ClientEventData<Events.$1>} */",
-      "const data = {",
+      "/** @type {ClientEventData<Events.$1>} */",
+      "export const data = {",
       "  module: 'event',",
       "  name: Events.$1,",
       "  once: ${2:false},",
       "}",
       "",
-      "/** @type {import('@disqada/halfbot').ClientEventFunction<Events.$1>} */",
-      "async function execute(bot, ...args) {",
+      "/** @type {ClientEventFunction<Events.$1>} */",
+      "export async function execute(bot, ...args) {",
       "  args.$0",
       "}",
       "",
       "export default { data, execute }"
     ]
   },
-  "HalfBot RepeatingEvent file (ES Module)": {
+  "HalfBot RepeatingEvent file (MJS)": {
     "scope": "javascript,javascriptmodule",
     "prefix": "event-repeat-m",
     "body": [
-      "/** @type {import('@disqada/halfbot').RepeatingEventData} */",
-      "const data = {",
+      "/** @import {RepeatingEventData, RepeatingEventFunction} from '@disqada/halfbot' */",
+      "",
+      "/** @type {RepeatingEventData} */",
+      "export const data = {",
       "  module: 'event-repeat',",
       "  firstWait: '${1:10m}',",
       "  wait: '${2:1h10s}',",
       "}",
       "",
-      "/** @type {import('@disqada/halfbot').RepeatingEventFunction} */",
-      "async function execute(bot) {",
+      "/** @type {RepeatingEventFunction} */",
+      "export async function execute(bot) {",
       "  $0",
       "}",
       "",
