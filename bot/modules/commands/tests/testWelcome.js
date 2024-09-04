@@ -1,6 +1,7 @@
 /** @import {GuildMember, InteractionReplyOptions} from 'discord.js' */
 /** @import {CommandData, CommandFunction, ClientEvent} from '@disqada/halfbot' */
 import { ApplicationCommandOptionType } from 'discord.js'
+import { findPath } from '@disqada/pathfinder'
 
 const targetCode = 'target'
 
@@ -29,14 +30,20 @@ export async function execute(interaction) {
   const target = interaction.options.getMember(targetCode) ?? interaction.member
   if (!target) return 'No member was provided for welcoming'
 
-  const { findPath } = require('@disqada/pathfinder')
-  const welcomeEventPath = findPath({ name: 'welcome' })
-  if (!welcomeEventPath) return "Couldn't find 'welcome' event"
+  const path = findPath({ name: 'welcome' })
+  if (!path) return "Couldn't find 'welcome' event"
 
   /** @type {ClientEvent<'guildMemberAdd'>} */
-  const welcomeEvent = require(welcomeEventPath.fullPath)
-  if (!welcomeEvent) return "Couldn't find 'welcome' event"
+  let welcomeEvent
+  try {
+    welcomeEvent = (await import(path.fullPath)).default
+  } catch (err) {
+    if (err.code === 'ERR_UNSUPPORTED_ESM_URL_SCHEME') {
+      welcomeEvent = (await import('file://' + path.fullPath)).default
+    } else throw err
+  }
 
+  if (!welcomeEvent) return 'Error loading welcome event'
   await welcomeEvent.execute(interaction.bot, target)
 
   /** @type {InteractionReplyOptions} */
