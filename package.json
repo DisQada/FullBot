@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node .",
-    "format": "prettier . --write --ignore-path .gitignore"
+    "format": "prettier . --write --ignore-path .gitignore",
+    "test": "mocha ./test/index.js"
   },
   "keywords": [
     "halfbot",
@@ -25,6 +26,7 @@
     "dotenv": "^16.4.5"
   },
   "devDependencies": {
+    "mocha": "^10.7.3",
     "prettier": "^3.3.3"
   }
 }
