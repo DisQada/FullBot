@@ -3,8 +3,9 @@
     "status": "online",
     "activities": [
       {
-        "name": "You're server",
-        "type": 3
+        "name": "discord app development",
+        "type": 5,
+        "url": "https://github.com/DisQada/FullBot"
       }
     ]
   }

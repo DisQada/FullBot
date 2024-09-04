@@ -24,11 +24,10 @@ export const data = {
 
 // @ts-expect-error
 /** @type {CommandFunction} */
-export async function execute(interaction) {
-  /** @type {GuildMember} */
-  // @ts-expect-error
-  const target = interaction.options.getMember(targetCode) ?? interaction.member
+export async function execute({ bot, member, options }) {
+  const target = options.getMember(targetCode) ?? member
   if (!target) return 'No member was provided for welcoming'
+  if (!('user' in target)) return 'Invalid member provided for welcoming'
 
   const path = findPath({ name: 'welcome' })
   if (!path) return "Couldn't find 'welcome' event"
@@ -43,13 +42,8 @@ export async function execute(interaction) {
     } else throw err
   }
 
-  if (!welcomeEvent) return 'Error loading welcome event'
-  await welcomeEvent.execute(interaction.bot, target)
-
-  /** @type {InteractionReplyOptions} */
-  const replyOptions = { content: `Welcomed ${target.user.username}` }
-
-  return replyOptions
+  await welcomeEvent.execute(bot, target)
+  return { content: `Welcomed ${target.user.username}` }
 }
 
 export default { data, execute }

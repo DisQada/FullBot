@@ -1,4 +1,4 @@
-/** @import {Guild, Invite, Role} from 'discord.js' */
+/** @import {Guild, Invite, Role, Collection} from 'discord.js' */
 /** @import {CommandData, CommandFunction, Embed} from '@disqada/halfbot' */
 
 /** @type {CommandData} */
@@ -6,22 +6,22 @@ export const data = {
   module: 'command',
   name: 'help',
   description: 'Starter guide and the support server link',
-  category: 'information'
+  category: 'info'
 }
 
 // @ts-expect-error
 /** @type {CommandFunction} */
-export async function execute(interaction) {
-  const bot = interaction.bot
-
+export async function execute({ bot }) {
   const guildId = bot.data.id.guild.support
-  if (!guildId) throw new Error('Support guild id is not provided')
+
+  if (!guildId) return 'The support server ID is not provided in the data file'
   const guild = await bot.guilds.fetch(guildId)
 
-  const invites = await guild.invites.fetch()
-  const botInvites = invites.filter((invite) => invite.inviter?.id === bot.user.id && invite.maxAge === 0)
+  /** @type {Collection<string, Invite>} */
+  const invites = (await guild.invites.fetch()).filter((inv) => inv.inviter?.id === bot.user.id && inv.maxAge === 0)
+  const invite = invites.first() || (await newInvite(guild))
 
-  const invite = botInvites.first() ?? (await createNewInvite(guild))
+  if (typeof invite === 'string') return invite
 
   /** @type {Embed[]} */
   const embeds = [
@@ -44,20 +44,17 @@ export async function execute(interaction) {
 
 /**
  * @param {Guild} guild
- * @returns {Promise<Invite>}
+ * @returns {Promise<Invite | string>}
  */
-async function createNewInvite(guild) {
-  /** @type {Role} */
-  // @ts-expect-error
-  const everyoneRole = guild.roles.cache.find((r) => r.name === '@everyone')
+async function newInvite(guild) {
+  /** @type {Role} */ // @ts-expect-error
+  const everyoneRole = guild.roles.cache.get(guild.id)
 
-  /** @type {string} */
-  // @ts-expect-error
   let channelId = guild.rulesChannelId
   if (!channelId) {
     const channels = await guild.channels.fetch()
     for (const [_, channel] of channels) {
-      if (!channel) continue
+      if (!channel || !channel.isTextBased()) continue
 
       const permissions = channel.permissionsFor(everyoneRole)
       const isPublic = permissions.has('ViewChannel')
@@ -67,6 +64,8 @@ async function createNewInvite(guild) {
       }
     }
   }
+
+  if (!channelId) return 'No public channel found to create an invite'
 
   const invite = await guild.invites.create(channelId, {
     maxAge: 0,

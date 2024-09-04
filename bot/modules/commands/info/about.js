@@ -1,3 +1,4 @@
+/** @import {ClientApplication, Collection, OAuth2Guild} from 'discord.js' */
 /** @import {CommandData, CommandFunction, Embed} from '@disqada/halfbot' */
 
 /** @type {CommandData} */
@@ -5,30 +6,29 @@ export const data = {
   module: 'command',
   name: 'about',
   description: 'General information about the bot',
-  category: 'information'
+  category: 'info'
 }
 
 // @ts-expect-error
 /** @type {CommandFunction} */
-export async function execute(interaction) {
-  const { client } = interaction
-  const app = await interaction.client.application.fetch()
-  const guilds = await client.guilds.fetch()
+export async function execute({ bot }) {
+  /** @type {[Promise<Collection<string, OAuth2Guild>>, Promise<ClientApplication>]} */
+  const promisses = [bot.guilds.fetch(), bot.application.fetch()]
+  const [guilds, app] = await Promise.all(promisses)
 
   /** @type {Embed} */
   const embed = {
     title: app.name || '',
     description: app.description || '',
-    // 'This bot is for testing [FullBot](https://github.com/DisQada/FullBot) code template',
-    thumbnail: { url: client.user.displayAvatarURL() },
+    thumbnail: { url: bot.user.displayAvatarURL() },
     fields: [
       {
         name: 'Owner',
         value: `${app.owner}`
       },
       {
-        name: 'Programming Language',
-        value: 'NodeJS + JavaScript'
+        name: 'Built with',
+        value: '[HalfBot](https://npmjs.com/package/@disqada/halfbot) JS framework'
       },
       {
         name: 'Tags',
@@ -40,7 +40,7 @@ export async function execute(interaction) {
       },
       {
         name: 'Ping',
-        value: `${client.ws.ping}ms`
+        value: `${bot.ws.ping}ms`
       }
     ]
   }

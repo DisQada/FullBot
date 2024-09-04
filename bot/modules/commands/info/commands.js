@@ -5,38 +5,31 @@ export const data = {
   module: 'command',
   name: 'commands',
   description: 'List all bot commands',
-  category: 'information',
+  category: 'info',
   defer: false
 }
 
 /** @type {CommandFunction} */
-export function execute(interaction) {
+export function execute({ bot }) {
   /** @type {Map<string, EmbedField[]>} */
-  const categories = new Map()
+  const catMap = new Map()
 
-  for (const command of interaction.bot.commands) {
-    const data = command[1].data
-    const category = data.category ?? '-'
+  for (const [_, { data }] of bot.commands) {
+    const cat = data.category || '-'
 
-    let arr = categories.get(category)
-    if (!arr) arr = []
-
-    arr.push({
+    if (!catMap.has(cat)) catMap.set(cat, [])
+    catMap.get(cat)?.push({
       name: data.name,
       // @ts-expect-error
-      value: data.description ?? ' ',
+      value: data.description || ' ',
       inline: true
     })
-
-    categories.set(category, arr)
   }
 
   /** @type {Embed[]} */
-  const embeds = []
-  for (const [title, fields] of categories) embeds.push({ title, fields })
+  const embeds = Array.from(catMap, ([title, fields]) => ({ title, fields }))
 
   if (embeds.length === 0) return 'No commands available'
-
   return { embeds }
 }
 
