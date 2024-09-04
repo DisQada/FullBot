@@ -1,168 +1,168 @@
-# FullBot
+<div align="right">
 
-[![version](https://img.shields.io/badge/@disqada/halfbot-v3.1.3-a341ff)](https://www.npmjs.com/package/@disqada/halfbot/v/3.1.3)
-[![Template Repository](https://img.shields.io/badge/Use_This-Template-a341ff)](https://github.com/DisQada/FullBot/generate)
+# FullBot | البوت الكامل
 
-# Translations
+[![الإصدار](https://img.shields.io/badge/@disqada/halfbot-v3.1.3-a341ff)](https://www.npmjs.com/package/@disqada/halfbot/v/3.1.3)
+[![مستودع القالب](https://img.shields.io/badge/Use_This-Template-a341ff)](https://github.com/DisQada/FullBot/generate)
 
-- [Arabic | العربية](README.ar.md)
+# الترجمات
 
-# Table of Contents
+- [الإنجليزية | English](README.en.md)
 
-- [FullBot](#fullbot)
-- [Translations](#translations)
-- [Table of Contents](#table-of-contents)
-- [About The Project](#about-the-project)
-- [Setup](#setup)
-  - [Bot Application](#bot-application)
-    - [Bot Token](#bot-token)
-    - [Invite Link](#invite-link)
-    - [Invite Button](#invite-button)
-  - [Bot Code](#bot-code)
-    - [Environment](#environment)
-    - [Dependencies](#dependencies)
-    - [Running the Bot](#running-the-bot)
-- [Developing](#developing)
-  - [Bot Data](#bot-data)
-  - [Bot Modules](#bot-modules)
-    - [Code Snippets](#code-snippets)
-  - [Additional](#additional)
-    - [NPM scripts](#npm-scripts)
+# الفهرس
 
-# About The Project
+- [FullBot | البوت الكامل](#fullbot--البوت-الكامل)
+- [الترجمات](#الترجمات)
+- [الفهرس](#الفهرس)
+- [عن المشروع](#عن-المشروع)
+- [الإعداد](#الإعداد)
+  - [تطبيق بوت](#تطبيق-بوت)
+    - [رمز البوت](#رمز-البوت)
+    - [رابط الدعوة](#رابط-الدعوة)
+    - [زر الدعوة](#زر-الدعوة)
+  - [كود البوت](#كود-البوت)
+    - [بيئة](#بيئة)
+    - [التبعيات](#التبعيات)
+    - [تشغيل البوت](#تشغيل-البوت)
+- [التطوير](#التطوير)
+  - [بيانات البوت](#بيانات-البوت)
+  - [وحدات البوت](#وحدات-البوت)
+    - [مقتطفات الكود](#مقتطفات-الكود)
+  - [إضافي](#إضافي)
+    - [برامج NPM النصية](#برامج-npm-النصية)
 
-A template for Discord bot code using [HalfBot][halfbot] framework
+# عن المشروع
 
-# Setup
+قالب لكود بوت دسكورد باستخدام إطار عمل [HalfBot][halfbot]
 
-## Bot Application
+# الإعداد
 
-Go to the [Discord Developer Portal](https://discord.com/developers/applications), Press on `New Application` and fill in the required information
+## تطبيق بوت
 
-![new application](images/image-1.png)
+اذهب إلى [بوابة دسكورد للمطورين](https://discord.com/developers/applications)، واضغط على `New Application` واملأ المعلومات المطلوبة
 
-Customise your bot however you want, we recommend adding tags since it's used by the `/about` command, we also recommend adding the most important commands in your application description using the context `</COMMAND_NAME:COMMAND_ID>`, you can get the command id by right-clicking the command description area when calling it
+![تطبيق جديد](images/1.png)
 
-![command description area while calling it](images/image-2.png)
+قم بتخصيص الروبوت الخاص بك كما تريد، نوصي بإضافة علامات نظراً لأنها تستخدم بواسطة الأمر `/about`، ونوصي أيضًا بإضافة أهم الأوامر في وصف التطبيق الخاص بك باستخدام السياق `</اسم_الأمر:معرف_الأمر>`، يمكنك الحصول على معرف الأمر عن طريق النقر بزر الفأرة الأيمن فوق منطقة وصف الأمر عند ندائه
 
-You can also get the command id from `Server Settings => Integrations => (Your bot)` by right-clicking the command area
+![منطقة وصف الأمر عند ندائه](images/2.png)
 
-![server integrations to bot commands](images/image-3.png)
+يمكنك أيضًا الحصول على معرف الأمر من `Server Settings => Integrations => (بوتك)` عن طريق النقر بزر الفأرة الأيمن على منطقة الأمر
 
-### Bot Token
+![ارتباطات الخادم إلى أوامر البوت](images/3.png)
 
-Go to the `Bot` section left on the navigation bar then copy the token if it's shown, if not then just click `Reset Token` and copy it and save it in a safe place because we'll need it later
+### رمز البوت
 
-![reset token button](images/image-4.png)
+انتقل إلى قسم `Bot` الموجود على يسار شريط التنقل، ثم انسخ الرمز إذا كان ظاهراً، وإذا لم يكن كذلك، فما عليك سوى النقر على `Reset Token` ونسخه وحفظه في مكان آمن لأننا سنحتاج إليه لاحقاً
 
-### Invite Link
+![زر إعادة تعيين الرمز](images/4.png)
 
-Go to the `URL Generator` section under `OAuth2` section left on the navigation bar, here we can generate an invite link for the bot so you can invite it to your server
+### رابط الدعوة
 
-Choose the following for starting:
+انتقل إلى قسم `URL Generator` ضمن قسم `OAuth2` الموجود على يسار شريط التنقل، وهنا يمكننا إنشاء رابط دعوة للبوت حتى تتمكن من دعوته إلى خادمك
 
-- Scopes: bot, applications.commands
-- Bot Permissions: Administrator
+اختر ما يلي للبدء:
 
-> You can generate a different one later
+- النطاقات: bot, apps.commands
+- أذونات بوت: Administrator
 
-You'll end up with a link similar to the one shown below, if you face any problems in the last steps copy this link and change the `CLIENT_ID` value, which you can copy from the `General Information` section left on the navigation bar under the name `Application ID`
+> يمكنك إنشاء واحدة مختلفة لاحقًا
+
+سينتهي بك الأمر برابط مشابه للذي هو موضح أدناه، إذا واجهت أي مشاكل في الخطوات السابقة، انسخ هذا الرابط وقم بتغيير قيمة `CLIENT_ID`، التي يمكنك نسخها من قسم `General Information` الموجود على اليسار في شريط التنقل شريط تحت اسم `Application ID`
 
 > https://discord.com/api/oauth2/authorize?client_id=CLIENT_ID&permissions=8&scope=bot+applications.commands
 
-Take the final link you have and paste it in any browser or in Discord (then click it) and the bot invite form will show up
+خذ الرابط النهائي الذي لديك والصقه في أي متصفح أو في دسكورد (ثم اضغط عليه) وسيظهر نموذج دعوة البوت
 
-![add bot](images/image-5.png)
+![إضافة بوت](images/5.png)
 
-### Invite Button
+### زر الدعوة
 
-There's a much easier way to let people invite you're bot to their servers other than giving them the link you created earlier or using a command to generate the invite link (unless you want only selected people to be able to invite your bot to their servers)
+هناك طريقة أسهل بكثير للسماح للأشخاص بدعوة بوتك إلى خوادمهم بدلاً من منحهم الرابط الذي قمت بإنشائه مسبقاً أو استخدام أمر لإنشاء رابط الدعوة (إلا إذا كنت تريد أن يتمكن فقط أشخاص محددون من دعوة بوتك إلى خوادمهم)
 
-Go to the `General` section under `OAuth2` left in the navigation bar, press on the dropdown below and choose `In-app Authorization`
+انتقل إلى قسم `General` ضمن `OAuth2` على اليسار في شريط التنقل، ثم اضغط على القائمة المنسدلة أدناه واختر `In-app Authorization`
 
-![default authorisation link](images/image-6.png)
+![رابط التفويض الافتراضي](images/6.png)
 
-A scopes-and-permissions box checks will show up, choose the scopes and permissions you want then click save, now your bot has a beautiful invite button on it's profile
+سيظهر مربع تحديد النطاقات والأذونات، اختر النطاقات والأذونات التي تريدها ثم انقر فوق `Save`، والآن أصبح لدى بوتك زر دعوة جميل في ملفه الشخصي
 
-> Never choose the `Administrator` permissions since it gives full permissions and usually people won't trust bots asking for this permission turned on, so just choose the minimal required permissions for your bot to run
+> لا تختر أبدًا إذن `Administrator` نظراً لأنها تمنح أذونات كاملة وعادةً لن يثق الأشخاص في البوتات التي تطلب هذا الإذن، لذا ما عليك سوى اختيار الحد الأدنى من الأذونات المطلوبة ليعمل بوتك
 
-![invite bot button](images/image-7.png)
+![زر دعوة البوت](images/7.png)
 
-## Bot Code
+## كود البوت
 
-### Environment
+### بيئة
 
-Create a file called `.env` in the root path of your project, never move or rename this file, this file will store sensitive data so keep it safe and never share it with anyone and most importantly don't push it to GitHub, you can do so by making sure that there's a '.env' line in your `.gitignore` file
+قم بإنشاء ملف يدعى `.env` في المسار الجذري لمشروعك، ولا تقم أبداً بنقل هذا الملف أو إعادة تسميته، حيث سيخزن هذا الملف بيانات حساسة، لذا احتفظ به آمناً ولا تشاركه أبداً مع أي شخص، والأهم من ذلك لا ترفعه إلى GitHub، يمكنك القيام بذلك عن طريق التأكد من وجود سطر ".env" داخل ملف `.gitignore` الخاص بك
 
-Copy the following into your `.env` file then Replace `PUT_YOUR_TOKEN_HERE` with your own bot token that you should've saved already, if not then read the [Bot Token](#bot-token) section
+انسخ ما يلي في ملف `.env` الخاص بك، ثم استبدل `PUT_YOUR_TOKEN_HERE` برمز البوت الذي يفترض أن حفظته بالفعل، إذا لم يكن الأمر كذلك، فاقرأ قسم [رمز البوت](#رمز-البوت)
 
 ```bash
 TOKEN=PUT_YOUR_TOKEN_HERE
 ```
 
-⚠️⚠️ DO NOT SHARE your TOKEN with anyone ⚠️⚠️
+⚠️⚠️ لا تشارك رمزك مع أي شخص ⚠️⚠️
 
-### Dependencies
+### التبعيات
 
-To download all the required packages, run the following command
+لتنزيل كافة الحزم المطلوبة، قم بتشغيل الأمر التالي
 
 ```bash
-npm run setup
+npm i
 ```
 
-### Running the Bot
+### تشغيل البوت
 
-Now all that remains is to run the bot and try it out by running the following command
+الآن كل ما تبقى هو تشغيل البوت وتجربته عن طريق تشغيل الأمر التالي
 
 ```bash
 npm run start
 ```
 
-# Developing
+# التطوير
 
-Now that we have the bot setup and ready, it's time to modify it by putting your brand as well as updating the existing bot functionalities and adding new ones
+الآن بعد أن انتهينا من إعداد البوت وأصبح جاهزاً، قد حان الوقت لتعديله من خلال وضع علامتك التجارية بالإضافة إلى تحديث وظائف البوت الحالية وإضافة وظائف جديدة
 
-## Bot Data
+## بيانات البوت
 
-The folder `data/` contains various data stored in JSON files, upon initialisation, the bot will read them and store them inside it as `bot.data.FILE_NAME`
+يحتوي المجلد `data/` على بيانات متنوعة مخزنة في ملفات JSON، عند التهيئة، سيقرأها البوت ويخزنها بداخله باسم `bot.data.FILE_NAME`
 
-Here you should store non-sensitive informations that are used in the bot like guild/channel/role/user IDs or brand social media links or anything else, it's better to separate the data from the logic
+هنا يجب عليك تخزين المعلومات غير الحساسة التي يتم استخدامها في البوت مثل معرفات النقابة/القناة/الرتبة/المستخدم أو روابط التواصل الاجتماعي الخاصة بالعلامة التجارية أو أي شيء آخر، فمن الأفضل فصل البيانات عن المنطق
 
-> The files inside the `data/` folder must be JSON files only and mustn't contain and comments or anything that's not acceptable by the `JSON.parse()` function
+> يجب أن تكون الملفات الموجودة داخل المجلد `data/` ملفات JSON فقط ويجب ألا تحتوي على تعليقات أو أي شيء غير مقبول بواسطة دالة `JSON.parse()`
 
-> If you want to rename the `data/` folder or change it's path then you must change the value of the `directories.data` in the `bot/launch.js` file
+> إذا كنت تريد إعادة تسمية المجلد `data/` أو تغيير مساره، فيجب عليك تغيير قيمة `directories.data` في ملف `bot/launch.js`
 
-## Bot Modules
+## وحدات البوت
 
-The bot modules should go under the `bot/modules/` folder, there are two types of modules that are commands and events, each having their own folder
+يجب أن تندرج وحدات الروبوت ضمن المجلد `bot/modules/`، هناك نوعان من الوحدات عبارة عن أوامر وأحداث، ولكل منها مجلد خاص بها
 
-### Code Snippets
+### مقتطفات الكود
 
-There are couple of code snippets to help you create bot module files much faster pre-configured inside `.vscode/` file, these snippets support JavaScript CommonJS, JavaScript ES Module and TypeScript
+هناك مقتطفات أكواد لمساعدتك في إنشاء ملفات وحدة البوت بشكل أسرع بكثير، تم تكوينها مسبقاً داخل ملف `.vscode/`، وتدعم هذه المقتطفات JavaScript CommonJS و JavaScript ES Module و TypeScript
 
-> ES Module (import/export) are not yet supported in [HalfBot][halfbot], use CommonJS (require()) only, for now
+> ES Module (import/export) غير مدعومة بعد في [HalfBot][halfbot]، استخدم CommonJS (require()) فقط في الوقت الحالي
 
-Available code snippets are as follow
+مقتطفات الكود المتاحة هي على النحو التالي
 
-- Command: command
-- Event
-  - Client Event: event-client
-  - Repeating Event: event-repeat
+- أمر: command
+- حدث
+  - حدث العميل: event-client
+  - حدث متكرر: event-repeat
 
-## Additional
+## إضافي
 
-There are some settings already configured in `.vscode/`, `.prettierrc.json` and `.eslintrc.json`, it's better not to change anything in them if it's your first time using Node.js
+هناك بعض الإعدادات التي تم تكوينها بالفعل في `.vscode/` و `.prettierrc.json` و `.eslintrc.json`، يفضل عدم تغيير أي شيء فيها إذا كانت هذه هي المرة الأولى التي تستخدم فيها Node.js
 
-### NPM scripts
+### برامج NPM النصية
 
-You can run the following npm scripts for linting and formatting respectively
-
-```bash
-npm run lint
-```
+يمكنك تشغيل برامج npm النصية التالية لإجراء التنسيق للكود
 
 ```bash
 npm run format
 ```
+
+</div>
 
 [halfbot]: https://github.com/DisQada/HalfBot

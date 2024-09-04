@@ -1,9 +1,3 @@
-# الناتج المولد
-config/
-types/
-docs/
-scrap/
-
 # السجلات
 logs
 *.log
