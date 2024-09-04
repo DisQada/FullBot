@@ -14,7 +14,6 @@ export async function execute(bot, member) {
   const guild = member.guild
   if (!guild) throw new Error('Guild is not available')
 
-  // @ts-expect-error
   const channelId = bot.data.id.channel.welcome
   if (!channelId) throw new Error('Welcome channel id is not provided')
 

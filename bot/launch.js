@@ -1,9 +1,9 @@
 import { GatewayIntentBits } from 'discord.js'
-import { DiscordBot } from '@disqada/halfbot'
+import { Bot } from '@disqada/halfbot'
 import { config } from 'dotenv'
 config()
 
-const bot = new DiscordBot({
+const bot = new Bot({
   token: process.env.TOKEN || '',
   directories: {
     root: 'bot',
@@ -26,9 +26,8 @@ async function logRejection(err) {
   console.error('Unhandled rejection:', err)
 
   try {
-    const guildId = bot.data.config.id.guild.dev
-    // @ts-expect-error
-    const channelId = bot.data.id.channel.errors
+    const guildId = bot.data.id.guild.dev
+    const channelId = bot.data.id.channel['errors']
 
     if (!guildId || !channelId) return
 

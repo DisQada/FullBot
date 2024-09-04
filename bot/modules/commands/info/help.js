@@ -14,11 +14,11 @@ export const data = {
 export async function execute(interaction) {
   const bot = interaction.bot
 
-  // @ts-expect-error
-  const guild = await bot.guilds.fetch(bot.data.config.id.guild.support)
+  const guildId = bot.data.id.guild.support
+  if (!guildId) throw new Error('Support guild id is not provided')
+  const guild = await bot.guilds.fetch(guildId)
 
   const invites = await guild.invites.fetch()
-  // @ts-expect-error
   const botInvites = invites.filter((invite) => invite.inviter?.id === bot.user.id && invite.maxAge === 0)
 
   const invite = botInvites.first() ?? (await createNewInvite(guild))

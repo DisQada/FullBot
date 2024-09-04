@@ -12,7 +12,6 @@ export const data = {
 /** @type {CommandFunction} */
 export function execute(interaction) {
   /** @type {LinksObject[]} */
-  // @ts-expect-error
   const links = interaction.bot.data.links
 
   /** @type {Embed} */

@@ -10,7 +10,7 @@ export const data = {
 
 /** @type {RepeatingEventFunction} */
 export async function execute(bot) {
-  const guildId = bot.data.config.id.guild.support
+  const guildId = bot.data.id.guild.support
   if (!guildId) throw new Error('Dev guild id not found')
 
   // @ts-expect-error
@@ -25,7 +25,6 @@ export async function execute(bot) {
 
   if (!channel.isTextBased()) throw new Error('Azkar channel is not text based')
 
-  // @ts-expect-error
   const azkar = bot.data.azkar
   if (!azkar || !azkar.length) throw new Error('Azkar not found')
 
