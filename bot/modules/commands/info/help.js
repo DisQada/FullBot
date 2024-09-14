@@ -1,5 +1,5 @@
-/** @import {Guild, Invite, Role, Collection} from 'discord.js' */
-/** @import {CommandData, CommandFunction, Embed} from '@disqada/halfbot' */
+/** @import { Guild, Invite, Role, Collection } from 'discord.js' */
+/** @import { CommandData, CommandFunction, Embed } from '@disqada/halfbot' */
 
 /** @type {CommandData} */
 export const data = {

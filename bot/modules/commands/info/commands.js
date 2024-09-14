@@ -1,4 +1,4 @@
-/** @import {CommandData, CommandFunction, Embed, EmbedField} from '@disqada/halfbot' */
+/** @import { CommandData, CommandFunction, Embed, EmbedField } from '@disqada/halfbot' */
 
 /** @type {CommandData} */
 export const data = {

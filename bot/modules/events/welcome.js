@@ -1,4 +1,4 @@
-/** @import {ClientEventData, ClientEventFunction, Embed} from '@disqada/halfbot' */
+/** @import { ClientEventData, ClientEventFunction, Embed } from '@disqada/halfbot' */
 import { Events } from 'discord.js'
 import { applyStyle } from '@disqada/halfbot'
 

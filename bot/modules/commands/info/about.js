@@ -1,5 +1,5 @@
-/** @import {ClientApplication, Collection, OAuth2Guild} from 'discord.js' */
-/** @import {CommandData, CommandFunction, Embed} from '@disqada/halfbot' */
+/** @import { ClientApplication, Collection, OAuth2Guild } from 'discord.js' */
+/** @import { CommandData, CommandFunction, Embed } from '@disqada/halfbot' */
 
 /** @type {CommandData} */
 export const data = {

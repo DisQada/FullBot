@@ -1,4 +1,4 @@
-/** @import {MessagePayload, MessageCreateOptions} from 'discord.js'*/
+/** @import { MessageCreateOptions } from 'discord.js'*/
 import { ok, equal } from 'assert/strict'
 import { data as eData, execute } from '../../../bot/modules/events/welcome.js'
 

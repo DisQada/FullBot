@@ -1,5 +1,5 @@
-/** @import {MessagePayload, MessageCreateOptions} from 'discord.js'*/
-import { ok, equal, deepEqual } from 'assert/strict'
+/** @import { MessageCreateOptions } from 'discord.js'*/
+import { ok, equal } from 'assert/strict'
 import { data as eData, execute } from '../../../bot/modules/events/sendAzkar.js'
 
 let data, guilds
